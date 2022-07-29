@@ -26,6 +26,7 @@ All endpoints that require a current user to be logged in.
     }
     ```
 
+
 ### All endpoints that require proper authorization
 
 All endpoints that require authentication and the current user does not have the
@@ -52,7 +53,7 @@ Returns the information about the current user that is logged in.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/users
+  * URL: /api/users/currentUser
   * Body: none
 
 * Successful Response
@@ -144,7 +145,7 @@ user's information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /api/users
+  * URL: /api/session
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -295,7 +296,7 @@ Returns the details of a spot specified by its id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /api/spots/:spotId
+  * URL: /api/spots/:id
   * Body: none
 
 * Successful Response
@@ -431,7 +432,7 @@ Updates and returns an existing spot.
 * Require proper authorization: Spot must belong to the current user
 * Request
   * Method: PUT
-  * URL: /api/spots
+  * URL: /api/spots/:spotId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -751,7 +752,7 @@ Update and return an existing review.
 * Require proper authorization: Review must belong to the current user
 * Request
   * Method: PUT
-  * URL: /api/reviews/:userId
+  * URL: /api/reviews/:spotId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -819,7 +820,7 @@ Delete an existing review.
 * Require proper authorization: Review must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/reviews/:userId
+  * URL: /api/reviews/:spotId
   * Body: none
 
 * Successful Response
@@ -1308,7 +1309,7 @@ Delete an existing image.
 * Require proper authorization: Image must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/image/:id
+  * URL: /api/image/:imageId
   * Body: none
 
 * Successful Response
