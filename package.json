@@ -6,7 +6,6 @@
   "description": "![AirBnB](https://user-images.githubusercontent.com/101853690/181394156-ad353c4f-5a22-43db-a3ee-00a62538094e.png)",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "npm --prefix backend install backend",
