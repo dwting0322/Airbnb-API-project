@@ -15,7 +15,28 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static associate(models) {
-      // define association here
+      User.belongsToMany(
+        models.Spot,
+        {through: models.Booking} // foreignKey: 'ownerId' ?
+      );
+
+      User.hasMany(
+        models.Image, {
+          foreignKey: 'userId', 
+          onDelete: 'CASCADE', 
+          hooks: true
+      });
+
+      User.hasMany(
+        models.Review, {
+          foreignKey: 'userId', 
+          onDelete: 'CASCADE', 
+          hooks: true
+      });
+
+
+
+
     }
 
     static getCurrentUserById(id) {
@@ -54,6 +75,7 @@ module.exports = (sequelize, DataTypes) => {
       username: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           len: [4, 30],
           isNotEmail(value) {
@@ -66,6 +88,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           len: [3, 256]
         }
@@ -76,6 +99,18 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           len: [60, 60]
         }
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
       }
     },
     {

@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Users", {
+    await queryInterface.createTable("Users", { // it was return not await
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -22,6 +22,18 @@ module.exports = {
         type: Sequelize.STRING.BINARY,
         allowNull: false
       },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -33,8 +45,13 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
+
+    await queryInterface.addIndex('Users', ['username', 'email'], { unique: true });
+
   },
+  
+
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Users");
+    await queryInterface.dropTable("Users"); // it was return not await
   }
 };
