@@ -2,8 +2,6 @@ const express = require('express');
 
 const { setTokenCookie, restoreUser, requireAuth, } = require('../../utils/auth');
 
-// const user = require('../../db/models/user');
-
 const router = express.Router();
 
 const { check } = require('express-validator');
@@ -17,6 +15,27 @@ const { Spot, User, Review, Booking, Image, sequelize } = require('../../db/mode
 router.get('/', async (req, res, next) => {
    
     const allSpots = await Spot.findAll({
+        include: {
+            model: Review,
+            attributes: []
+        },
+        attributes: [
+            "id",
+            "ownerId", 
+            "address", 
+            "city", 
+            "state", 
+            "country", 
+            "lat",
+            "lng",
+            "name",
+            "description",
+            "price",
+            "createdAt",
+            "updatedAt",
+            [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"],
+            "previewImage",
+        ]
  
     })
     res.json(allSpots)
@@ -59,7 +78,7 @@ router.post('/', restoreUser, requireAuth, async (req, res, next) => {
         description,
         price,
     })
-    res.status(201)
+    res.statusCode = 201
     res.json(spots)
 });
 
