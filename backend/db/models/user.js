@@ -20,19 +20,21 @@ module.exports = (sequelize, DataTypes) => {
         { through: models.Booking }
       );
 
-      // User.hasMany(
-      //   models.Image, {
-      //     foreignKey: 'userId', 
-      //     onDelete: 'CASCADE', 
-      //     hooks: true
-      // });
+      User.hasMany(
+        models.Review, {
+          foreignKey: 'userId', 
+          onDelete: 'CASCADE', 
+          hooks: true
+      });
+      
+      User.hasMany(
+        models.Image, {
+          foreignKey: 'userId', 
+          onDelete: 'CASCADE', 
+          hooks: true
+      });
 
-      // User.hasMany(
-      //   models.Review, {
-      //     foreignKey: 'userId', 
-      //     onDelete: 'CASCADE', 
-      //     hooks: true
-      // });
+  
     }
 
     static getCurrentUserById(id) {

@@ -11,20 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // Image.belongsTo(
-      //   models.User, 
-      //   { foreignKey: 'userId' }
-      // );
+      Image.belongsTo(
+        models.User, 
+        { foreignKey: 'userId' }
+      );
 
-      // Image.belongsTo(
-      //   models.Spot, 
-      //   { foreignKey: 'spotId' }
-      // );
+      Image.belongsTo(
+        models.Spot, 
+        { foreignKey: 'spotId' }
+      );
 
-      // Image.belongsTo(
-      //   models.Review, 
-      //   { foreignKey: 'reviewId' }
-      // );
+      Image.belongsTo(
+        models.Review, 
+        { foreignKey: 'reviewId' }
+      );
 
     }
   }
@@ -38,6 +38,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     previewImage: {
       type: DataTypes.BOOLEAN,
+    },
+    imageableId: {
+      type: DataTypes.INTEGER
     },
     spotId: {
       type: DataTypes.INTEGER,

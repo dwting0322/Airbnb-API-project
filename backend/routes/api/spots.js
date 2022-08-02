@@ -41,6 +41,86 @@ router.get('/', async (req, res, next) => {
     res.json(allSpots)
 });
 
+// Get all Spots owned by the Current User
+
+router.get('/current', requireAuth, async (req, res, next) => {
+    const { user } = req;
+    const allSpots = await Spot.findAll({
+        
+        where: {
+            ownerId: user.id
+        },
+        include: {
+            model: Booking,
+            attributes: []
+        },
+        include: {
+            model: Review,
+            attributes: []
+        },
+        attributes: [
+            "id",
+            "ownerId", 
+            "address", 
+            "city", 
+            "state", 
+            "country", 
+            "lat",
+            "lng",
+            "name",
+            "description",
+            "price",
+            "createdAt",
+            "updatedAt",
+            [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"],
+            "previewImage",
+        ]
+ 
+    })
+    res.json({"Spots":allSpots})
+});
+
+
+
+//Get details of a Spot from an id
+
+router.get('/:spotId', async (req, res, next) => {
+     const {spotId} = req.params
+
+     const spotDetail = await Spot.findByPk(spotId, {
+    
+    attributes: [  
+        "id",
+        "ownerId", 
+        "address", 
+        "city", 
+        "state", 
+        "country", 
+        "lat",
+        "lng",
+        "name",
+        "description",
+        "price",
+        "createdAt",
+        "updatedAt",
+        // [sequelize.fn("AVG", sequelize.col("stars")), "avgRating"]
+    ],
+        include:{
+            model: Image,
+            attributes: ['id','imageableId', 'url'],
+            include:{
+                model: User,
+                attributes: ['id','firstName', 'lastName'],
+            }
+        }
+     });
+     res.json(spotDetail)
+});
+
+
+
+
+
 
 // Create a Spot
 router.post('/', restoreUser, requireAuth, async (req, res, next) => {
