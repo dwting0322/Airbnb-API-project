@@ -19,11 +19,11 @@ const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
         .isEmail()
-        .withMessage('Please provide a valid email.'),
+        .withMessage('Invalid email'),
     check('username')
         .exists({ checkFalsy: true })
         .isLength({ min: 4 })
-        .withMessage('Please provide a username with at least 4 characters.'),
+        .withMessage('Please provide a username with at least 4 characters. Username is required'),
     check('username')
         .not()
         .isEmail()
@@ -32,12 +32,53 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
         .withMessage('Password must be 6 characters or more.'),
+        check('firstName')
+        .exists({ checkFalsy: true })
+        .isLength({ min: 1 })
+        .withMessage('First Name is required'),
+    check('lastName')
+        .exists({ checkFalsy: true })
+        .isLength({ min: 1 })
+        .withMessage('Last Name is required'),
+
     handleValidationErrors
 ];
 
 // Sign up
 router.post('/', validateSignup, async (req, res) => {
-    const { firstName, lastName, email,username, password } = req.body;
+    const { firstName, lastName, email, username, password } = req.body;
+
+    const sameEmail = await User.findOne({
+        where: { email },
+      })
+
+    if(sameEmail){
+        res.statusCode = 403
+        res.json({
+            "message": "User already exists",
+            "statusCode": 403,
+            "errors": {
+              "email": "User with that email already exists"
+            }
+          })
+    }
+    
+    const sameUsername = await User.findOne({
+        where: { username },
+      })
+
+    if(sameUsername){
+        res.statusCode = 403
+        res.json({
+            "message": "User already exists",
+            "statusCode": 403,
+            "errors": {
+              "username": "User with that username already exists"
+            }
+          })
+    }
+
+
     const user = await User.signup({ firstName, lastName, email, username, password });
 
     await setTokenCookie(res, user);

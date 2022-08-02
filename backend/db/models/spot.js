@@ -76,7 +76,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [0,50],
+        len: [1,49],
       }
     },
     description: {
@@ -87,9 +87,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        min: 0,
+        min: 1,
       }
     },
+    previewImage: {
+      type: DataTypes.STRING,
+    },
+
   }, {
     sequelize,
     modelName: 'Spot',
