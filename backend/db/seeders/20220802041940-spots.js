@@ -66,8 +66,21 @@ module.exports = {
           lat: 41.7645358,
           lng: -126.4730327,
           name: "House #3",
-          description: "This is a spot #3",
+          description: "This is a spot #5",
           price: 555,
+          previewImage: "https://www.pngegg.com/en/png-wsosz"
+        },
+        {
+          ownerId: 6,
+          address: "666 Ave",
+          city: "Los Angeles",
+          state: "California",
+          country: "United States",
+          lat: 42.7645358,
+          lng: -127.4730327,
+          name: "House #3",
+          description: "This is a spot #6",
+          price: 666,
           previewImage: "https://www.pngegg.com/en/png-wsosz"
         },
 
