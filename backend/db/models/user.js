@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static associate(models) {
-      User.belongsToMany(
-        models.Spot,
-        {through: models.Booking} // foreignKey: 'ownerId' ?
-      );
+      // User.belongsToMany(
+      //   models.Spot,
+      //   {through: models.Booking} // foreignKey: 'ownerId' ?
+      // );
 
       // User.hasMany(
       //   models.Image, {
