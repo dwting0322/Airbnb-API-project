@@ -39,9 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     previewImage: {
       type: DataTypes.BOOLEAN,
     },
-    imageableId: {
-      type: DataTypes.INTEGER
-    },
+  
     spotId: {
       type: DataTypes.INTEGER,
     },

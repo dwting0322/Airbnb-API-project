@@ -13,7 +13,7 @@ const { Spot, User, Review, Booking, Image, sequelize } = require('../../db/mode
 
 // Get all spots
 router.get('/', async (req, res, next) => {
-    // const { spot } = req;
+  
     const allSpots = await Spot.findAll({
         
         attributes: {
@@ -98,7 +98,8 @@ router.get('/:spotId', async (req, res, next) => {
         },
         {
             model: Image,
-            attributes: ['id','imageableId', 'url']
+            attributes: ['id', [ sequelize.literal("Images.id"), "imageableId" ] ,'url']
+            
         },
         {
             model: User,
@@ -169,6 +170,39 @@ router.post('/', restoreUser, requireAuth, async (req, res, next) => {
     res.json(spots)
 });
 
+// Add an Image to a Spot based on the Spot's id
+router.post('/:spotId/images', restoreUser, requireAuth, async (req, res, next) => {
+    const {spotId} = req.params
+  
+    const {url} = req.body
+    const findId = await Spot.findByPk(spotId, {
+        attributes: [],
+        include: 
+            {
+                model: Image,
+                attributes: ['id', [ sequelize.literal("Images.id"), "imageableId" ] ,'url']
+            },
+            
+    })
+        findId.Images.url = url
+        res.json(findId)
+    
+    //  if(!findId){
+    //     res.statusCode = 404,
+    //     res.json({
+    //         "message": "Spot couldn't be found",
+    //         "statusCode": 404
+    //       })
+    //  }
+    
+   
+
+})
+
+
+
+
+
 
 // Edit a Spot
 
@@ -236,7 +270,7 @@ router.delete('/:spotId', restoreUser, requireAuth, async (req, res, next) => {
             "statusCode": 404
           })
     }
-    
+
     await deleteSpot.destroy()
     res.json({
         "message": "Successfully deleted",
