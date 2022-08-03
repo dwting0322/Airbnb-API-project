@@ -129,31 +129,61 @@ router.get('/:spotId', async (req, res, next) => {
 
 
 
+// Body validation error 400
+const spotValid = [
+check('address')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('Street address is required'),
+check('city')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('City is required'),
+check('state')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('State is required'),
+check('country')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('Country is required'),
+check('lat')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isFloat({min:-90, max:90})
+   .withMessage('Latitude is not valid'),
+check('lng')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isFloat({min:-180, max:180})
+   .withMessage('Longitude is not valid'),
+check('name')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1, max:50 })
+   .withMessage('Name must be less than 50 characters'),
+check('description')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('Description is required'),
+check('price')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .withMessage('Price per day is required'),
+handleValidationErrors
+]
 
 
 // Create a Spot
-router.post('/', restoreUser, requireAuth, async (req, res, next) => {
+router.post('/', restoreUser, spotValid, requireAuth, async (req, res, next) => {
    const {address, city, state, country, lat, lng, name, description, price} = req.body
 
-
-   if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price) {
-    res.statusCode = 400;
-    res.json({
-        "message": "Validation error",
-        "statusCode": 400,
-        "errors": {
-            "address": "Street address is required",
-            "city": "City is required",
-            "state": "State is required",
-            "country": "Country is required",
-            "lat": "Latitude is not valid",
-            "lng": "Longitude is not valid",
-            "name": "Name must be less than 50 characters",
-            "description": "Description is required",
-            "price": "Price per day is required"
-          }
-    })
-  }
+// Body validation error 400
 
     const spots = await Spot.create({
         address,
@@ -170,30 +200,40 @@ router.post('/', restoreUser, requireAuth, async (req, res, next) => {
     res.json(spots)
 });
 
+
 // Add an Image to a Spot based on the Spot's id
 router.post('/:spotId/images', restoreUser, requireAuth, async (req, res, next) => {
+
     const {spotId} = req.params
-  
     const {url} = req.body
-    const findId = await Spot.findByPk(spotId, {
-        attributes: [],
-        include: 
-            {
-                model: Image,
-                attributes: ['id', [ sequelize.literal("Images.id"), "imageableId" ] ,'url']
-            },
-            
-    })
-        findId.Images.url = url
-        res.json(findId)
+
+    const findSpotId = await Spot.findByPk(spotId)
     
-    //  if(!findId){
-    //     res.statusCode = 404,
-    //     res.json({
-    //         "message": "Spot couldn't be found",
-    //         "statusCode": 404
-    //       })
-    //  }
+     if(!findSpotId){
+        res.statusCode = 404,
+        res.json({
+            "message": "Spot couldn't be found",
+            "statusCode": 404
+          })
+     }
+     
+     const addImageToSpot = await Image.create({
+        "spotId": spotId,
+        "url" : url
+     })
+
+     res.json(await Image.findByPk(addImageToSpot.id, {
+        attributes: [
+            'id',
+            ['spotId', 'imageableId'],
+            'url'
+        ]
+    }))
+//     const abc =  addImageToSpot.toJSON()
+//     abc.imageableId = spotId
+// console.log(abc)
+
+//      res.json(abc)
     
    
 
@@ -206,7 +246,7 @@ router.post('/:spotId/images', restoreUser, requireAuth, async (req, res, next) 
 
 // Edit a Spot
 
-router.put('/:spotId', restoreUser, requireAuth, async (req, res, next) => {
+router.put('/:spotId', restoreUser,spotValid, requireAuth, async (req, res, next) => {
 
     const {address, city, state, country, lat, lng, name, description, price} = req.body
     const {spotId} = req.params
@@ -222,24 +262,52 @@ router.put('/:spotId', restoreUser, requireAuth, async (req, res, next) => {
           })
     }
 // Body validation error 400
-    if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price) {
-        res.statusCode = 400;
-        res.json({
-            "message": "Validation error",
-            "statusCode": 400,
-            "errors": {
-                "address": "Street address is required",
-                "city": "City is required",
-                "state": "State is required",
-                "country": "Country is required",
-                "lat": "Latitude is not valid",
-                "lng": "Longitude is not valid",
-                "name": "Name must be less than 50 characters",
-                "description": "Description is required",
-                "price": "Price per day is required"
-              }
-        })
-      }
+check('address')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('Street address is required'),
+check('city')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('City is required'),
+check('state')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('State is required'),
+check('country')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('Country is required'),
+check('lat')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isFloat({min:-90, max:90})
+   .withMessage('Latitude is not valid'),
+check('lng')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isFloat({min:-180, max:180})
+   .withMessage('Longitude is not valid'),
+check('name')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1, max:50 })
+   .withMessage('Name must be less than 50 characters'),
+check('description')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .isLength({ min: 1 })
+   .withMessage('Description is required'),
+check('price')
+   .exists({ checkFalsy: true })
+   .notEmpty()
+   .withMessage('Price per day is required')
+handleValidationErrors
+
 
     editSpot.set({
         address, 
