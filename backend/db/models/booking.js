@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Booking.belongsTo(models.User, {foreignKey: 'userId'})
-      Booking.belongsTo(models.Spot, {foreignKey: 'spotId'})
+      Booking.belongsTo(models.User, {foreignKey: 'userId', onDelete: 'CASCADE', hooks: true})
+      Booking.belongsTo(models.Spot, {foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true})
       
     }
   }
@@ -24,15 +24,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     startDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     endDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
       validate:{
-        isValidte() {
-          if (this.endDate.isBefore(this.startDate)) {
+        isValidte(value) {
+          if(this.startDate > value) {
             throw new Error('endDate cannot be on or before startDate');
           }
         }

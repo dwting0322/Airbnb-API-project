@@ -11,10 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Spot.belongsToMany(
-        models.User,
-        { as: 'Owner', through: models.Booking } 
+      // Spot.belongsToMany(
+      //   models.User,
+      //   { as: 'Owner', through: models.Booking } 
+      // );
+      Spot.belongsTo(
+        models.User,{ 
+          foreignKey: 'ownerId', as:'Owner' }
       );
+
+      Spot.hasMany(
+        models.Booking, {
+          foreignKey: 'spotId', 
+          onDelete: 'CASCADE', 
+          hooks: true
+      });
       
       Spot.hasMany(
         models.Review, {
@@ -29,11 +40,6 @@ module.exports = (sequelize, DataTypes) => {
           onDelete: 'CASCADE', 
           hooks: true
       });
-
-  
-
-
-
 
     }
   }
@@ -99,6 +105,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Spot',
+    defaultScope: {
+      attributes: {
+        exclude: ["createdAt", "updatedAt"]
+      }
+    },
   });
   return Spot;
 };

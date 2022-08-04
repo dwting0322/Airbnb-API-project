@@ -28,13 +28,13 @@ module.exports = {
         stars: 4,
       },
       {
-        userId: 5,
+        userId: 1,
         spotId: 3,
         review: "5 - This was an awesome spot!",
         stars: 4,
       },
       {
-        userId: 5,
+        userId: 2,
         spotId: 5,
         review: "5 - This was an awesome spot!",
         stars: 5,
