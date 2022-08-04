@@ -38,13 +38,13 @@ router.put('/:bookingId', restoreUser, requireAuth, async (req, res, next) => {
     const {bookingId} = req.params
     const {user} = req
     
+
     const editBookingId = await Booking.findByPk(bookingId)
 
-    let spotId = editBookingId.spotId
-    
     // console.log(editBookingId.userId)
     // console.log(user.id)
 
+    
 
     if(!editBookingId){  
         res.statusCode = 404,
@@ -54,7 +54,7 @@ router.put('/:bookingId', restoreUser, requireAuth, async (req, res, next) => {
           })
     }
 
-    if(editBookingId.userId != user.id) {
+    if(editBookingId.userId !== user.id) {
         res.status(403)
         res.json( {
             "message": "You must be the current user!!!",
@@ -86,7 +86,7 @@ router.put('/:bookingId', restoreUser, requireAuth, async (req, res, next) => {
           })
     }
 
-
+    let spotId = editBookingId.spotId
     const startDateConflict = await Booking.findAll({
         where:{
             [Op.and]: [
@@ -109,7 +109,7 @@ router.put('/:bookingId', restoreUser, requireAuth, async (req, res, next) => {
               // Booking must belong to the current user
             
     } else if (user.id === editBookingId.userId){
-       
+
         editBookingId.set({
             startDate, 
             endDate
@@ -117,7 +117,7 @@ router.put('/:bookingId', restoreUser, requireAuth, async (req, res, next) => {
     
        await editBookingId.save()
     
-        res.json(editBookingId)
+        return res.json(editBookingId)
         
     }
     
@@ -128,36 +128,44 @@ router.delete('/:bookingId', restoreUser, requireAuth, async (req, res, next) =>
     const {user} = req
 
     const deleteBooking = await Booking.findByPk(bookingId)
+    // console.log(deleteBooking)
 
-    // if(!deleteBooking){
-    //     res.statusCode = 404,
+    if(!deleteBooking){
+        res.statusCode = 404,
+        res.json({
+            "message": "Booking couldn't be found",
+            "statusCode": 404
+          })
+    }
+
+    // let today = new Date().toISOString().slice(0, 10)
+    // if(startDate < today ||  endDate < today){
+    //     res.statusCode = 403,
     //     res.json({
-    //         "message": "Booking couldn't be found",
-    //         "statusCode": 404
+    //         "message": "Bookings that have been started can't be deleted",
+    //         "statusCode": 403
     //       })
     // }
+
     // const deleteSpotBooking = await Spot.findByPk(deleteBooking.spotId);
-    //     console.log(deleteSpotBooking)
+     
+    // if(deleteBooking.userId === user.id || deleteSpotBooking.ownerId === user.id ) {
+        await deleteBooking.destroy()
 
-    // if(deleteBooking.userId != user.id || deleteSpotBooking.ownerId != user.id ) {
+        res.statusCode = 200
+        return res.json({
+            "message": "Successfully deleted",
+            "statusCode": 200
+        })
+    // } else {
     //     res.status(403)
-    //     return res.json( {
-    //         "message": "You must be the current user!!!",
-    //         "statusCode": 403
-    //     })
+    //             return res.json( {
+    //                 "message": "Booking must belong to the current user or the Spot must belong to the current user",
+    //                 "statusCode": 403
+    //             })
     // }
-    await deleteBooking.destroy()
-
-    return res.json({
-        "message": "Successfully deleted",
-        "statusCode": 200
-      })
-
  })
-    
 });
-
-
 
 
 
