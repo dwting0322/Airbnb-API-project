@@ -10,7 +10,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { Op } = require('sequelize');
 
 const { Spot, User, Review, Booking, Image, sequelize } = require('../../db/models');
-const spot = require('../../db/models/spot');
+// const spot = require('../../db/models/spot');
 
 
 
@@ -39,6 +39,7 @@ router.get('/', async (req, res, next) => {
     // console.log('allSpots.length: ', allSpots.length)
 
     let spot = []
+
     for(let el of allSpots){
         const allRating = await Review.findAll({
         where: {
@@ -52,18 +53,15 @@ router.get('/', async (req, res, next) => {
         
         let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
        
-
+    //    console.log('imageUrl.url: ', imageUrl.url)
+       
         data = {
             ...el.dataValues,
             avgRating: allRating[0].avgRating,
-            previewImage: imageUrl.url
+            previewImage: imageUrl.url || null
         }
         spot.push(data)
     }
-
-
-    // console.log('allRating:', allRating)
-
 
     res.json({Spots: spot, page:page, size:size})
 });
@@ -77,7 +75,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         }
     })
 
-    // let spot = []
+    let spot = []
     for(let el of allSpots){
         const allRating = await Review.findAll({
         where: {
@@ -92,7 +90,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
        console.log(allRating)
 
-       let data = {
+        data = {
             ...el.dataValues,
             avgRating: allRating[0].avgRating,
             previewImage: imageUrl.url
@@ -151,7 +149,7 @@ router.get('/:spotId', async (req, res, next) => {
     //    console.log(spotDetail)
 //    let avgStarRating = allRating[0].dataValues.avgRating
 //    console.log("avgStarRating: ", avgStarRating)
-      let  data = {
+        data = {
             ...spotById.dataValues,
             numReviews,
             avgStarRating: allRating[0].dataValues.avgRating,
