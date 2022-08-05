@@ -58,7 +58,7 @@ router.get('/', async (req, res, next) => {
         data = {
             ...el.dataValues,
             avgRating: allRating[0].avgRating,
-            previewImage: imageUrl.url || null
+            previewImage: imageUrl.url
         }
         spot.push(data)
     }
