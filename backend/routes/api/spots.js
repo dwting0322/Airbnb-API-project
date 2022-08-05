@@ -12,10 +12,44 @@ const { Op } = require('sequelize');
 const { Spot, User, Review, Booking, Image, sequelize } = require('../../db/models');
 // const spot = require('../../db/models/spot');
 
-
+const checkValidate = [
+    check('page')
+        .optional()
+        .isInt({ min:1 })
+        .withMessage('Page must be greater than or equal to 0"'),
+    check('size')
+        .optional()
+        .isInt({ min:0 })
+        .withMessage('Size must be greater than or equal to 0'),
+    check('maxLat')
+        .optional()
+        .isDecimal()
+        .withMessage('Maximum latitude is invalid'),
+    check('minLat')
+        .optional()
+        .isDecimal()
+        .withMessage('Minimum latitude is invalid'),
+    check('minLng')
+        .optional()
+        .isDecimal()
+        .withMessage('Maximum longitude is invalid'),
+    check('maxLng')
+        .optional()
+        .isDecimal()
+        .withMessage('Minimum longitude is invalid'),
+    check('minPrice')
+        .optional()
+        .isInt({ min:0 })
+        .withMessage('Maximum price must be greater than or equal to 0'),
+    check('maxPrice')
+        .optional()
+        .isInt({ min:0 })
+        .withMessage('Minimum price must be greater than or equal to 0'),
+    handleValidationErrors
+]
 
 // Get all spots & Add Query Filters to Get All Spots
-router.get('/', async (req, res, next) => {
+router.get('/', checkValidate, async (req, res, next) => {
     let {size, page} = req.query
 
     if(!page) page = 1
@@ -576,7 +610,7 @@ router.post('/:spotId/bookings', restoreUser, requireAuth, async (req, res, next
             "statusCode": 403,
           })
     }
-
+})
     // const endDateConflict = await Booking.findAll({
     //     where:{
     //         [Op.and]: [
@@ -601,6 +635,6 @@ router.post('/:spotId/bookings', restoreUser, requireAuth, async (req, res, next
      
     
 
- })
+ 
 
 module.exports = router;

@@ -18,7 +18,7 @@ router.delete('/', (_req, res) => {
 }
 );
 
-// Restore session user
+// Restore session user, Get the Current User
 router.get('/', restoreUser, (req, res) => {
         const { user } = req;
         if (user) {
@@ -59,10 +59,14 @@ router.post('/', validateLogin, async (req, res, next) => {
         return next(err);
     }
 
-    await setTokenCookie(res, user);
+    const token = await setTokenCookie(res, user)
+    user.dataValues.token = token
+    return res.json(
+        user
+    )
+    // await setTokenCookie(res, user);
 
-    return res.json(user);
-}
-);
+    // return res.json(user);
+});
 
 module.exports = router;
