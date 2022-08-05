@@ -54,13 +54,27 @@ router.get('/', async (req, res, next) => {
         let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
        
     //    console.log('imageUrl.url: ', imageUrl.url)
-       
-        data = {
-            ...el.dataValues,
-            avgRating: allRating[0].avgRating,
-            previewImage: imageUrl.url
-        }
-        spot.push(data)
+       if(!imageUrl){
+            data = {
+                ...el.dataValues,
+                avgRating: allRating[0].avgRating,
+                previewImage: null
+            }
+            spot.push(data)
+       } else {
+            data = {
+                ...el.dataValues,
+                avgRating: allRating[0].avgRating,
+                previewImage: imageUrl.url
+            }
+            spot.push(data)
+       }
+        // data = {
+        //     ...el.dataValues,
+        //     avgRating: allRating[0].avgRating,
+        //     previewImage: imageUrl.url
+        // }
+        // spot.push(data)
     }
 
     res.json({Spots: spot, page:page, size:size})
