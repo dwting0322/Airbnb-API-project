@@ -63,20 +63,20 @@ router.post('/', validateSignup, async (req, res) => {
           })
     }
     
-    const sameUsername = await User.findOne({
-        where: { username },
-      })
+    // const sameUsername = await User.findOne({
+    //     where: { username },
+    //   })
 
-    if(sameUsername){
-        res.statusCode = 403
-        res.json({
-            "message": "User already exists",
-            "statusCode": 403,
-            "errors": {
-              "username": "User with that username already exists"
-            }
-          })
-    }
+    // if(sameUsername){
+    //     res.statusCode = 403
+    //     res.json({
+    //         "message": "User already exists",
+    //         "statusCode": 403,
+    //         "errors": {
+    //           "username": "User with that username already exists"
+    //         }
+    //       })
+    // }
 
 
     const user = await User.signup({ firstName, lastName, email, username, password });

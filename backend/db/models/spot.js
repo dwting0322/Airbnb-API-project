@@ -17,21 +17,20 @@ module.exports = (sequelize, DataTypes) => {
       // );
       Spot.belongsTo(
         models.User,{ 
-          foreignKey: 'ownerId', as:'Owner' }
+          foreignKey: 'ownerId', as:'Owner'}
       );
 
       Spot.hasMany(
         models.Booking, {
           foreignKey: 'spotId', 
-          onDelete: 'CASCADE', 
-          hooks: true
+          onDelete: 'CASCADE', hooks: true
       });
       
       Spot.hasMany(
         models.Review, {
           foreignKey: 'spotId', 
-          onDelete: 'CASCADE', 
-          hooks: true
+          onDelete: 'CASCADE', hooks: true
+          
       });
 
       Spot.hasMany(
@@ -98,18 +97,18 @@ module.exports = (sequelize, DataTypes) => {
         min: 1,
       }
     },
-    previewImage: {
-      type: DataTypes.STRING,
-    },
+    // previewImage: {
+    //   type: DataTypes.STRING,
+    // },
 
   }, {
     sequelize,
     modelName: 'Spot',
-    defaultScope: {
-      attributes: {
-        exclude: ["createdAt", "updatedAt"]
-      }
-    },
+    // defaultScope: {
+    //   attributes: {
+    //     exclude: ["createdAt", "updatedAt"]
+    //   }
+    // },
   });
   return Spot;
 };

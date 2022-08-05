@@ -15,7 +15,7 @@ module.exports = {
           name: "House #1",
           description: "This is a spot #1",
           price: 111,
-          previewImage: "https://www.pngegg.com/en/png-wsosz"
+          // previewImage: "https://www.pngegg.com/en/png-wsosz"
         },
         {
           ownerId: 2,
@@ -28,7 +28,7 @@ module.exports = {
           name: "House #2",
           description: "This is a spot #2",
           price: 222,
-          previewImage: "https://www.pngegg.com/en/png-wsosz"
+          // previewImage: "https://www.pngegg.com/en/png-wsosz"
         },
         {
           ownerId: 3,
@@ -41,7 +41,7 @@ module.exports = {
           name: "House #3",
           description: "This is a spot #3",
           price: 333,
-          previewImage: "https://www.pngegg.com/en/png-wsosz"
+          // previewImage: "https://www.pngegg.com/en/png-wsosz"
         },
         {
           ownerId: 4,
@@ -54,7 +54,7 @@ module.exports = {
           name: "House #4",
           description: "This is a spot #4",
           price: 444,
-          previewImage: "https://www.pngegg.com/en/png-wsosz"
+          // previewImage: "https://www.pngegg.com/en/png-wsosz"
         },
 
         {
@@ -68,7 +68,7 @@ module.exports = {
           name: "House #5",
           description: "This is a spot #5",
           price: 555,
-          previewImage: "https://www.pngegg.com/en/png-wsosz"
+          // previewImage: "https://www.pngegg.com/en/png-wsosz"
         },
         // {
         //   ownerId: 6,
