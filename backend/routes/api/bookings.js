@@ -28,7 +28,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         // },
         // raw: true
     })
-    
+
     const allSpot = await Spot.findAll({
         where: {
             ownerId: user.id
@@ -110,9 +110,20 @@ router.put('/:bookingId', restoreUser, requireAuth, async (req, res, next) => {
 
     let spotId = editBookingId.spotId
     const startDateConflict = await Booking.findAll({
-        where: {
+       where:{
             [Op.and]: [
-                { startDate }, { spotId }
+                {spotId: spotId },
+                // {startDate: startDate },
+                    { [Op.or]: [{
+                        startDate:{
+                            [Op.between]: [startDate, endDate]
+                        }
+                    }, {
+                        endDate:{
+                            [Op.between]: [startDate, endDate]
+                        }
+                       }]
+                    }
             ]
         },
     })

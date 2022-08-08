@@ -571,16 +571,43 @@ router.post('/:spotId/bookings', restoreUser, requireAuth, async (req, res, next
             }
           })
     }
-     
-    const startDateConflict = await Booking.findAll({
+
+    // let day1 = new Date(startDate)
+  
+    // let day2 = new Date(endDate)
+    // let start = Math.abs(day1)/(1000 * 3600 * 24)
+    // let end = Math.abs(day2)/(1000 * 3600 * 24)
+    // let diffDate = end - start 
+// console.log('endDate-startDate: ', end-start )
+
+    //  for(let i = 0; i < diffDate; i++){
+    //     day1.setDate(day1.getDate() + i) ;
+    //    let stringDay1 = day1.toISOString().slice(0, 10)
+    // console.log('startDate +1: ',day1.toISOString().slice(0, 10) )
+    // console.log('day1: ', stringDay1)
+
+    let startDateConflict = await Booking.findAll({
         where:{
             [Op.and]: [
-                {startDate: startDate },{spotId: spotId }
+                {spotId: spotId },
+                // {startDate: startDate },
+                    { [Op.or]: [{
+                        startDate:{
+                            [Op.between]: [startDate, endDate]
+                        }
+                    }, {
+                        endDate:{
+                            [Op.between]: [startDate, endDate]
+                        }
+                       }]
+                    }
             ]
         },
     })
-    
-// console.log(startDateConflict.length)
+    // console.log('1111111',startDateConflict)
+    // console.log('22222222', startDateConflict.length)
+
+
 
     if(startDateConflict.length >= 1 ){
         res.statusCode = 403
@@ -612,6 +639,7 @@ router.post('/:spotId/bookings', restoreUser, requireAuth, async (req, res, next
             "statusCode": 403,
           })
     }
+
 })
     // const endDateConflict = await Booking.findAll({
     //     where:{
