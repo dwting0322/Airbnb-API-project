@@ -42,7 +42,9 @@ router.get('/current', requireAuth, async (req, res, next) => {
             attributes: ['url']
         })
 
-    allSpot[0].previewImage = imageUrl.dataValues.url
+    for(let i=0; i< allSpot.length; i++){
+        allSpot[i].previewImage = imageUrl.dataValues.url
+    }
 
     for(let i=0; i< allBooking.length; i++){
         allBooking[i].dataValues.Spot = allSpot

@@ -138,12 +138,28 @@ router.get('/current', requireAuth, async (req, res, next) => {
         let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
        console.log(allRating)
 
-        data = {
-            ...el.dataValues,
-            avgRating: allRating[0].avgRating,
-            previewImage: imageUrl.url
-        }
-        spot.push(data)
+        // data = {
+        //     ...el.dataValues,
+        //     avgRating: allRating[0].avgRating,
+        //     previewImage: imageUrl.url
+        // }
+        
+        // spot.push(data)
+        if(!imageUrl){
+            data = {
+                ...el.dataValues,
+                avgRating: allRating[0].avgRating,
+                previewImage: null
+            }
+            spot.push(data)
+       } else {
+            data = {
+                ...el.dataValues,
+                avgRating: allRating[0].avgRating,
+                previewImage: imageUrl.url
+            }
+            spot.push(data)
+       }
     }
 
     res.json({Spots:spot})
@@ -296,6 +312,7 @@ router.post('/:spotId/images', restoreUser, requireAuth, async (req, res, next) 
 
     const {spotId} = req.params
     const {url} = req.body
+    const {user} = req
 
     const findSpotId = await Spot.findByPk(spotId)
     
@@ -305,20 +322,25 @@ router.post('/:spotId/images', restoreUser, requireAuth, async (req, res, next) 
             "message": "Spot couldn't be found",
             "statusCode": 404
           })
-     }
-     
-     const addImageToSpot = await Image.create({
+     } else {
+         const addImageToSpot = await Image.create({
         "spotId": spotId,
-        "url" : url
+        "url" : url,
+        "userId": user.id
      })
-
-     res.json(await Image.findByPk(addImageToSpot.id, {
+      res.json(await Image.findByPk(addImageToSpot.id, {
         attributes: [
             'id',
             ['spotId', 'imageableId'],
             'url'
         ]
     }))
+
+     }
+     
+    
+
+    
 //     const abc =  addImageToSpot.toJSON()
 //     abc.imageableId = spotId
 // console.log(abc)
@@ -452,8 +474,8 @@ router.post('/:spotId/reviews', reviewChecker, restoreUser, requireAuth, async (
     const newSpotReview = await Spot.findByPk(spotId)
 
     if(!newSpotReview){
-        res.statusCode = 404,
-        res.json({
+        res.statusCode = 404
+        return res.json({
             "message": "Spot couldn't be found",
             "statusCode": 404
           })
@@ -507,8 +529,8 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
            "statusCode": 404
          })
     }
-// console.log('this is spot.owner id', typeof(spot.ownerId))
-// console.log ('this is user id', typeof(user.id))
+console.log('this is spot.owner id', spot.ownerId)
+console.log ('this is user id', user.id)
 
     if(spot.ownerId !== user.id){
         const notOwnerBooking = await Booking.findAll({
@@ -534,6 +556,7 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
             ]
 
         });
+      
             res.json({Bookings:ownerBooking})
     }
     
