@@ -136,7 +136,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         })
         
         let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
-       console.log(allRating)
+    //    console.log(allRating)
 
         // data = {
         //     ...el.dataValues,
