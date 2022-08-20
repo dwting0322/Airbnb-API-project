@@ -56,8 +56,8 @@ const goodbyeSpots = (spots) => {
 };
 
 
-//thunk
-// get all spots
+//thunk 
+// get all spots thunk
 export const getSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
 
@@ -70,7 +70,7 @@ export const getSpots = () => async (dispatch) => {
     }
 }
 
-//get one spot
+//get one spot thunk
 export const getOneSpots = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}`)
     // console.log("response: ", response)
@@ -82,10 +82,10 @@ export const getOneSpots = (spotId) => async (dispatch) => {
 }
 
 
-//get current owner spot
+//get current owner spot thunk
 export const getOwnerSpots = () => async (dispatch) => {
     const response = await csrfFetch("/api/spots/current")
-     console.log("response: ", response)
+    //  console.log("response: ", response)
     if (response.ok) {
         const spots = await response.json()
         // console.log("spots from Thunk: ", spots.Spots)
@@ -93,10 +93,25 @@ export const getOwnerSpots = () => async (dispatch) => {
     }
 }
 
+// create spot thunk
+export const createSpot = (payload) => async (dispatch) => {
+    const response = await csrfFetch('/api/spots', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    // console.log("response: ", response)
+  
+    if (response.ok) {
+      const spot = await response.json();
+      dispatch(addSpots(spot));
+    //   console.log("spot: ", spot)
+    }
+  };
 
 
 
-  //reducer
+//reducer
 
 const initialState = {}
 const spotReducer = (state = initialState, action) =>{
@@ -125,6 +140,13 @@ const spotReducer = (state = initialState, action) =>{
                 // newState = {...state, ...ownerSpot}
                 console.log("ownerSpot: ", ownerSpot)
                 return ownerSpot;  
+
+        case ADD_SPOTS : 
+                newState = {...state}
+                // console.log("action.spots  ", action.spots)
+                newState[action.spots.id] = action.spots
+                // console.log("newState from getOneSpot reducer after ", newOneState)
+                return newState
         default:
             return state
         }

@@ -297,6 +297,7 @@ router.post('/', restoreUser, spotValid, requireAuth, async (req, res, next) => 
         name,
         description,
         price,
+        // previewImage
         
     })
     
