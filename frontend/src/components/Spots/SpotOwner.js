@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getOwnerSpots } from "../../store/spots";
+import { deleteSpot, getOwnerSpots } from "../../store/spots";
+
 
 //  console.log("12456879")
 
@@ -10,7 +11,7 @@ const SpotOwner = () => {
 
     // console.log("beginning")
 
-    const [isLoaded, setIsLoaded] = useState(false)
+
     const dispatch = useDispatch();
 
     const spotObj = useSelector(state => state.spots)
@@ -22,20 +23,14 @@ const SpotOwner = () => {
     // console.log("user: ", user)
 
 
-    // useEffect(() => {
-    //     dispatch(getOwnerSpots())
-    // }, [dispatch])
-
-    useEffect(()=> {
+    useEffect(() => {
         dispatch(getOwnerSpots())
-        // .then(()=>) //optional chaining in line 18 where you key into user... might be an easy way to do it as well
-        .then(()=> setIsLoaded(true))
-    },[dispatch])
+    }, [dispatch])
+
 
     if (!spots) return null
-    return isLoaded && (
+    return (
         <>
-
             {spots.map(spot =>
                 <div key={spot.id}>
                     <NavLink to={`/spots/${spot.id}`}>
@@ -48,9 +43,9 @@ const SpotOwner = () => {
                     <div>{spot.city}, {spot.state}, {spot.country} </div>
                     <div>Description: {spot.description}</div>
                     <NavLink to={`/spots/${spot.id}/edit`}>Edit</NavLink>
+                    <button onClick={()=> dispatch(deleteSpot(spot.id))}>Delete</button>
                 </div>
             )}
-
         </>
     )
 };

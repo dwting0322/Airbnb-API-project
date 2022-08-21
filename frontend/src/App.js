@@ -42,13 +42,13 @@ function App() {
             <SpotDetail />
           </Route>
 
-          <Route exact path="/spots">
-            <CreateSpotForm />
-          </Route>
+          <Route exact path="/spots" component={CreateSpotForm}/>
+            {/* <CreateSpotForm />
+          </Route> */}
 
-          <Route exact path="/spots/:spotId/edit">
-            <EditSpotForm />
-          </Route>
+          <Route exact path="/spots/:spotId/edit" component={EditSpotForm}/>
+            {/* <EditSpotForm />
+          </Route> */}
 
         </Switch>
       )}

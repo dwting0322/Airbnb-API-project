@@ -6,7 +6,7 @@ const LOAD_ONE_SPOTS = "spots/loadOneSpots";
 const READ_OWNER_SPOTS = "spots/readOwnerSpots";
 const ADD_SPOTS = "spots/addSpots";
 const UPDATE_SPOTS = "spots/updateSpots";
-const GOODBYE_SPOTS = "spots/goodbyeSpots";
+const GOODBYE_SPOT = "spots/goodbyeSpot";
 
 
 //action creator
@@ -50,10 +50,10 @@ const updateSpot = (spot) => {
 };
 
 
-const goodbyeSpots = (spot) => {
+const goodbyeSpot = (spotId) => {
     return {
-        type: GOODBYE_SPOTS,
-        spot,
+        type: GOODBYE_SPOT,
+        spotId,
     }
 };
 
@@ -130,6 +130,25 @@ export const createSpot = (payload) => async (dispatch) => {
   };
 
 
+  export const deleteSpot = (spotId) => async (dispatch) => {
+    console.log("spotId: ", spotId)
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(mySpot)
+    });
+    console.log("Delete response from thunk: ", response)
+  
+    if (response.ok) {
+      const spot = await response.json();
+      dispatch(goodbyeSpot(spotId));
+      console.log("Delete spot from thunk: ", spot)
+    }
+  };
+
+
+
+
 //reducer
 
 const initialState = {}
@@ -169,9 +188,16 @@ const spotReducer = (state = initialState, action) =>{
 
         case UPDATE_SPOTS : 
                 newState = {...state}
-                console.log("action.spots  ", action.spot)
+                // console.log("action.spots  ", action.spot)
                 newState[action.spot.id] = action.spot
-                console.log("newState from  reducer after ", newState)
+                // console.log("newState from  reducer after ", newState)
+                return newState
+
+        case GOODBYE_SPOT : 
+                newState = {...state}
+                // console.log("action.spots  ", action.spot)
+                delete newState[action.spotId]
+                // console.log("newState from  reducer after ", newState)
                 return newState
         default:
             return state

@@ -354,7 +354,7 @@ router.post('/:spotId/images', restoreUser, requireAuth, async (req, res, next) 
 
 router.put('/:spotId', restoreUser, spotValid, requireAuth, async (req, res, next) => {
 
-    const {address, city, state, country, lat, lng, name, description, price} = req.body
+    const {address, city, state, country, lat, lng, name, description, price, previewImage} = req.body
     const {spotId} = req.params
 
     const editSpot = await Spot.findByPk(spotId)
@@ -377,7 +377,8 @@ router.put('/:spotId', restoreUser, spotValid, requireAuth, async (req, res, nex
         lng, 
         name, 
         description, 
-        price
+        price,
+        previewImage
     })
 
    await editSpot.save()
