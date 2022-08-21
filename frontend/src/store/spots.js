@@ -10,6 +10,7 @@ const GOODBYE_SPOTS = "spots/goodbyeSpots";
 
 
 //action creator
+//get all spot action
 const loadSpots = (spots) => {
     return {
         type: LOAD_SPOTS,
@@ -17,13 +18,14 @@ const loadSpots = (spots) => {
     }
 };
 
+//get one spot action
 const loadOneSpots = (spots) => {
     return {
         type: LOAD_ONE_SPOTS,
         spots,
     }
 };
-
+//get current owner spot action
 const readOwnerSpots = (spots) => {
     return {
         type: READ_OWNER_SPOTS,
@@ -31,8 +33,7 @@ const readOwnerSpots = (spots) => {
     }
 };
 
-
-
+// create action
 const addSpots = (spots) => {
     return {
         type: ADD_SPOTS,
@@ -40,18 +41,19 @@ const addSpots = (spots) => {
     }
 };
 
-const updateSpots = (spots) => {
+// update action
+const updateSpot = (spot) => {
     return {
         type: UPDATE_SPOTS,
-        spots,
+        spot,
     }
 };
 
 
-const goodbyeSpots = (spots) => {
+const goodbyeSpots = (spot) => {
     return {
         type: GOODBYE_SPOTS,
-        spots,
+        spot,
     }
 };
 
@@ -110,6 +112,23 @@ export const createSpot = (payload) => async (dispatch) => {
   };
 
 
+// update spot thunk
+  export const editSpot = (mySpot) => async (dispatch) => {
+    console.log("mySpot: ", mySpot)
+    const response = await csrfFetch(`/api/spots/${mySpot.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(mySpot)
+    });
+    console.log("response from thunk: ", response)
+  
+    if (response.ok) {
+      const spot = await response.json();
+      dispatch(updateSpot(spot));
+      console.log("spot from thunk: ", spot)
+    }
+  };
+
 
 //reducer
 
@@ -146,6 +165,13 @@ const spotReducer = (state = initialState, action) =>{
                 // console.log("action.spots  ", action.spots)
                 newState[action.spots.id] = action.spots
                 // console.log("newState from getOneSpot reducer after ", newOneState)
+                return newState
+
+        case UPDATE_SPOTS : 
+                newState = {...state}
+                console.log("action.spots  ", action.spot)
+                newState[action.spot.id] = action.spot
+                console.log("newState from  reducer after ", newState)
                 return newState
         default:
             return state

@@ -3,13 +3,18 @@ import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { createSpot } from '../../store/spots';
-import EditSpotForm from './EditSpotForm';
+import { editSpot } from '../../store/spots';
 
 
-const CreateSpotForm = () => {
+const EditSpotForm = ({mySpot}) => {
+    const {spotId} = useParams();
+ 
+    const spot = useSelector(state => state.spots)
+    // console.log("spots: ", spot)
+
     const dispatch = useDispatch();
     const history = useHistory();
+
     const [previewImage, setPreviewImage] = useState("")
     const [address, setAddress] = useState("")
     const [city, setCity] = useState("")
@@ -30,7 +35,8 @@ const CreateSpotForm = () => {
         return alert("Cannot Submit");
     }
 
-     const mySpot = {
+    const mySpot = {
+        id: spotId,
         address,
         city,
         state,
@@ -43,22 +49,9 @@ const CreateSpotForm = () => {
         previewImage,
       };
   
-    dispatch(createSpot(mySpot))
-  
+    dispatch(editSpot(mySpot))
 
-    setPreviewImage('');
-    setAddress('');
-    setCity('');
-    setState('');
-    setCountry('');
-    setLat('');
-    setLng('');
-    setName('');
-    setDescription('');
-    setPrice('');
-    setValidationErrors([]);
-    setHasSubmitted(false);
-    //   history.push(`/`);
+    history.push(`/spots/${spotId}`);
     };
   
 
@@ -111,7 +104,7 @@ const CreateSpotForm = () => {
 
     return (
       <form onSubmit={handleSubmit} >
-        <h2>Create a Spot</h2>
+        <h2>Update a Spot</h2>
 
         <ul className="errors">
             {hasSubmitted && validationErrors.map(error => (
@@ -122,7 +115,7 @@ const CreateSpotForm = () => {
         </ul>
 
         <label>
-          Address
+          Address: 
           <input 
             type="text"
             placeholder="address..."
@@ -131,16 +124,16 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-          City
+          City: 
           <input 
-          type="text"
-          placeholder="city..."
+            type="text"
+            placeholder="city..."
             value={city}
             onChange={e => setCity(e.target.value)}
           />
         </label>
         <label>
-           State
+           State: 
           <input 
             type="text"
             placeholder="state..."
@@ -149,7 +142,7 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-            Country
+            Country: 
           <input 
             type="text"
             placeholder="country..."
@@ -158,7 +151,7 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-            Lat
+            Lat: 
           <input 
             type="number"
             placeholder="latitude..."
@@ -167,7 +160,7 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-            Lng
+            Lng: 
           <input 
             type="number"
             placeholder="longitude..."
@@ -176,7 +169,7 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-            Name
+            Name: 
           <input 
             type="text"
             placeholder="property name..."
@@ -185,16 +178,16 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-            Description
+            Description: 
           <textarea 
-            type="text"
-            placeholder="description..."
+             type="text"
+             placeholder="description..."
             value={description}
             onChange={e => setDescription(e.target.value)}
           />
         </label>
         <label>
-            Price
+            Price: 
           <input 
             type="number"
             placeholder="price..."
@@ -203,7 +196,7 @@ const CreateSpotForm = () => {
           />
         </label>
         <label>
-            Image Url
+            Image Url: 
           <input 
             type='url'
             placeholder="please upload the property's url..."
@@ -214,10 +207,9 @@ const CreateSpotForm = () => {
         <button 
         type="submit"
         // disabled={validationErrors.length > 0}
-        >Create New Spot</button>
-        {/* <EditSpotForm mySpot={mySpot}/> */}
+        >Update Spot</button>
       </form>
     );
   }
   
-  export default CreateSpotForm;
+  export default EditSpotForm;

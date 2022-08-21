@@ -15,7 +15,7 @@ module.exports = {
           name: "House #1",
           description: "This is a spot #1",
           price: 111,
-          // previewImage: "https://www.pngegg.com/en/png-wsosz"
+          previewImage: "https://a0.muscache.com/im/pictures/miso/Hosting-48511845/original/8f81a33d-bf66-4976-89f5-a247f0051f3a.jpeg?im_w=1200"
         },
         {
           ownerId: 2,
@@ -28,7 +28,7 @@ module.exports = {
           name: "House #2",
           description: "This is a spot #2",
           price: 222,
-          // previewImage: "https://www.pngegg.com/en/png-wsosz"
+          previewImage: "https://a0.muscache.com/im/pictures/miso/Hosting-48511845/original/5c547673-29e9-4993-b469-137c3b834313.jpeg?im_w=1440"
         },
         {
           ownerId: 3,
@@ -41,7 +41,7 @@ module.exports = {
           name: "House #3",
           description: "This is a spot #3",
           price: 333,
-          // previewImage: "https://www.pngegg.com/en/png-wsosz"
+          previewImage: "https://a0.muscache.com/im/pictures/e3d5e43d-7a6b-4e3f-bd2c-b32468108895.jpg?im_w=1440"
         },
         {
           ownerId: 4,
@@ -54,7 +54,7 @@ module.exports = {
           name: "House #4",
           description: "This is a spot #4",
           price: 444,
-          // previewImage: "https://www.pngegg.com/en/png-wsosz"
+          previewImage: "https://a0.muscache.com/im/pictures/miso/Hosting-48511845/original/eeee1ae5-bb73-4150-bff8-9b7e5e89951f.jpeg?im_w=1440"
         },
 
         {
@@ -68,7 +68,7 @@ module.exports = {
           name: "House #5",
           description: "This is a spot #5",
           price: 555,
-          // previewImage: "https://www.pngegg.com/en/png-wsosz"
+          previewImage: "https://a0.muscache.com/im/pictures/miso/Hosting-48511845/original/d80b216f-5fb2-499a-91b2-54d388513695.jpeg?im_w=1440"
         },
         // {
         //   ownerId: 6,

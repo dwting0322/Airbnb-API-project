@@ -10,28 +10,30 @@ const SpotOwner = () => {
 
     // console.log("beginning")
 
-
+    const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch();
 
     const spotObj = useSelector(state => state.spots)
     // console.log("spotObj: ", spotObj)
     const spots = Object.values(spotObj)
-    // console.log("spot: ", spots[0])
+    console.log("spot: ", spots)
 
     // const user = useSelector(state => state.session.user)
     // console.log("user: ", user)
 
-    // const currentOwner = spot.filter(spot => spot.ownerId === user.id)
-    // console.log("currentOwner: ", currentOwner)
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     dispatch(getOwnerSpots())
+    // }, [dispatch])
+
+    useEffect(()=> {
         dispatch(getOwnerSpots())
-
-    }, [dispatch])
-
+        // .then(()=>) //optional chaining in line 18 where you key into user... might be an easy way to do it as well
+        .then(()=> setIsLoaded(true))
+    },[dispatch])
 
     if (!spots) return null
-    return (
+    return isLoaded && (
         <>
 
             {spots.map(spot =>
@@ -45,6 +47,7 @@ const SpotOwner = () => {
                     <div>{spot.address}</div>
                     <div>{spot.city}, {spot.state}, {spot.country} </div>
                     <div>Description: {spot.description}</div>
+                    <NavLink to={`/spots/${spot.id}/edit`}>Edit</NavLink>
                 </div>
             )}
 

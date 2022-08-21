@@ -282,7 +282,7 @@ handleValidationErrors
 
 // Create a Spot
 router.post('/', restoreUser, spotValid, requireAuth, async (req, res, next) => {
-   const {address, city, state, country, lat, lng, name, description, price} = req.body
+   const {address, city, state, country, lat, lng, name, description, price, previewImage} = req.body
    const {user} = req
 // Body validation error 400
 
@@ -297,7 +297,7 @@ router.post('/', restoreUser, spotValid, requireAuth, async (req, res, next) => 
         name,
         description,
         price,
-        // previewImage
+        previewImage
         
     })
     

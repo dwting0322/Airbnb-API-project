@@ -97,9 +97,9 @@ module.exports = (sequelize, DataTypes) => {
         min: 1,
       }
     },
-    // previewImage: {
-    //   type: DataTypes.STRING,
-    // },
+    previewImage: {
+      type: DataTypes.STRING,
+    },
 
   }, {
     sequelize,
