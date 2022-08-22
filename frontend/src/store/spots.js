@@ -64,7 +64,7 @@ export const getSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
     if (response.ok) {
         const spots = await response.json()
-        // console.log("spots: ", spots)
+        console.log("spots.Spots - get all spot thunk: ", spots.Spots)
         dispatch(loadSpots(spots.Spots))
     }
 }
@@ -76,7 +76,7 @@ export const getOneSpots = (spotId) => async (dispatch) => {
     // console.log("response: ", response)
     if (response.ok) {
         const spots = await response.json()
-        // console.log("spots from Thunk: ", spots)
+        console.log("spots - get one spot Thunk: ", spots)
         dispatch(loadOneSpots(spots))
     }
 }
@@ -88,7 +88,7 @@ export const getOwnerSpots = () => async (dispatch) => {
     //  console.log("response: ", response)
     if (response.ok) {
         const spots = await response.json()
-        // console.log("spots from Thunk: ", spots.Spots)
+        console.log("spots.Spots - current owner spot Thunk: ", spots.Spots)
         dispatch(readOwnerSpots(spots.Spots))
     }
 }
@@ -104,7 +104,18 @@ export const createSpot = (payload) => async (dispatch) => {
   
     if (response.ok) {
       const spot = await response.json();
+     const newImageObj = {
+        spotId: spot.id,
+        url: payload.previewImage
+     }
+      const responseImage = await csrfFetch(`/api/spots/${spot.id}/images`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newImageObj)
+      });
+
       dispatch(addSpots(spot));
+      
     //   console.log("spot: ", spot)
     }
   };

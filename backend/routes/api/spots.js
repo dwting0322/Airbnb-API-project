@@ -85,24 +85,24 @@ router.get('/', checkValidate, async (req, res, next) => {
         raw: true,
         })
         
-        let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
+        // let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
        
     //    console.log('imageUrl.url: ', imageUrl.url)
-       if(!imageUrl){
+    //    if(!imageUrl){
+    //         data = {
+    //             ...el.dataValues,
+    //             avgRating: allRating[0].avgRating,
+    //             previewImage: null
+    //         }
+    //         spot.push(data)
+    //    } else {
             data = {
                 ...el.dataValues,
                 avgRating: allRating[0].avgRating,
-                previewImage: null
+                // previewImage: imageUrl.url
             }
             spot.push(data)
-       } else {
-            data = {
-                ...el.dataValues,
-                avgRating: allRating[0].avgRating,
-                previewImage: imageUrl.url
-            }
-            spot.push(data)
-       }
+    //    }
         // data = {
         //     ...el.dataValues,
         //     avgRating: allRating[0].avgRating,
@@ -135,7 +135,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         raw: true,
         })
         
-        let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
+        // let imageUrl = await Image.findOne({ where: { spotId: el.id }, attributes: ['url'] })
     //    console.log(allRating)
 
         // data = {
@@ -145,21 +145,21 @@ router.get('/current', requireAuth, async (req, res, next) => {
         // }
         
         // spot.push(data)
-        if(!imageUrl){
+    //     if(!imageUrl){
+    //         data = {
+    //             ...el.dataValues,
+    //             avgRating: allRating[0].avgRating,
+    //             previewImage: null
+    //         }
+    //         spot.push(data)
+    //    } else {
             data = {
                 ...el.dataValues,
                 avgRating: allRating[0].avgRating,
-                previewImage: null
+                // previewImage: imageUrl.url
             }
             spot.push(data)
-       } else {
-            data = {
-                ...el.dataValues,
-                avgRating: allRating[0].avgRating,
-                previewImage: imageUrl.url
-            }
-            spot.push(data)
-       }
+    //    }
     }
 
     res.json({Spots:spot})

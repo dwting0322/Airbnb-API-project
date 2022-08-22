@@ -26,12 +26,13 @@ const SpotForm = ({spot, formType}) => {
     const [hasSubmitted, setHasSubmitted] = useState(false);
     
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       setHasSubmitted(true);
       if (validationErrors.length > 0) {
         return alert("Cannot Submit");
     }
+
 
     spot = { 
     ...spot, 
@@ -47,11 +48,15 @@ const SpotForm = ({spot, formType}) => {
     previewImage, };
      
   if(formType === "Create Spot"){
-    dispatch(createSpot(spot))
-  } else {
-    dispatch(editSpot(spot))
+    const newSpot = await dispatch(createSpot(spot))
+    // .then(data => data.json())
    
-  }
+    console.log("newSpot: ", newSpot)
+    // if(newSpot) history.push(`/spots/${newSpot.id}`);
+    } else {
+      dispatch(editSpot(spot))
+      history.push(`/spots/${spot.id}`);
+    }
     
 //   console.log("spot from SpotForm: ",spot)
 
@@ -68,7 +73,7 @@ const SpotForm = ({spot, formType}) => {
     setValidationErrors([]);
     setHasSubmitted(false);
     //   history.push(`/`);
-    // history.push(`/spots/${spot.id}`);
+    
     };
   
 

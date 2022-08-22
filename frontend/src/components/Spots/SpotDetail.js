@@ -14,7 +14,8 @@ const SpotDetail = () => {
     const dispatch = useDispatch();
     // console.log("spotId: ", spotId)
     const spot = useSelector(state => state.spots[spotId])
-    // console.log("spot: ", spot)
+    // const review = useSelector(state => state.review)
+    // console.log("review: ", review)
     // const user = useSelector(state=> state.session.user)
     // console.log("user: ", user)
 
@@ -28,9 +29,9 @@ const SpotDetail = () => {
   
   return (
     <div>
-        <NavLink to={`/spots/${spot.id}`}>
-            <img src={spot.previewImage} alt="Vacation Property"/>
-        </NavLink>
+        
+        <img src={spot.previewImage} alt="Vacation Property"/>
+       
         <div>{`$${spot.price}`}  night</div>
         <div><i className="fa-solid fa-star"></i> {spot.avgStarRating? spot.avgStarRating.toFixed(2) : 0}</div>
         <div>{spot.numReviews} reviews</div>
