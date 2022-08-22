@@ -24,7 +24,7 @@ const SpotForm = ({spot, formType}) => {
     const [previewImage, setPreviewImage] = useState(spot.previewImage || "")
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false)
+    
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -32,6 +32,7 @@ const SpotForm = ({spot, formType}) => {
       if (validationErrors.length > 0) {
         return alert("Cannot Submit");
     }
+
     spot = { 
     ...spot, 
     address,
@@ -52,7 +53,7 @@ const SpotForm = ({spot, formType}) => {
    
   }
     
-  console.log("spot from SpotForm: ",spot)
+//   console.log("spot from SpotForm: ",spot)
 
     setPreviewImage('');
     setAddress('');

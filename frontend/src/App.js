@@ -10,6 +10,8 @@ import SpotDetail from "./components/Spots/SpotDetail";
 import SpotOwner from "./components/Spots/SpotOwner";
 import CreateSpotForm from "./components/Spots/CreateSpotForm";
 import EditSpotForm from "./components/Spots/EditSpotForm";
+import ReviewsUser from "./components/Reviews/ReviewUser";
+
 
 
 
@@ -49,6 +51,11 @@ function App() {
           <Route exact path="/spots/:spotId/edit" component={EditSpotForm}/>
             {/* <EditSpotForm />
           </Route> */}
+
+          <Route exact path={'/reviews/current'}>
+            <ReviewsUser />
+          </Route>
+
 
         </Switch>
       )}

@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOneSpots } from '../../store/spots';
+import ReviewsSpot from '../Reviews/ReviewsSpot';
+import CreateReviewForm from '../Reviews/CreateReviewForm';
+
 
 
 
@@ -11,7 +14,7 @@ const SpotDetail = () => {
     const dispatch = useDispatch();
     // console.log("spotId: ", spotId)
     const spot = useSelector(state => state.spots[spotId])
-    console.log("spot: ", spot)
+    // console.log("spot: ", spot)
     // const user = useSelector(state=> state.session.user)
     // console.log("user: ", user)
 
@@ -35,8 +38,8 @@ const SpotDetail = () => {
         <div>{spot.address}</div>
         <div>{spot.city}, {spot.state}, {spot.country} </div>
         <div>Description: {spot.description}</div>
-        {/* <div><ReviewSpot/></div>
-        <div>{ user&& <ReviewForm/>}</div> */}
+        <div><ReviewsSpot /></div>
+        <div><CreateReviewForm /></div>
     </div>
 
   )

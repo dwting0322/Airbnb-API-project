@@ -62,15 +62,13 @@ const goodbyeSpot = (spotId) => {
 // get all spots thunk
 export const getSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
-
-    // console.log("response: ", response)
-
     if (response.ok) {
         const spots = await response.json()
         // console.log("spots: ", spots)
         dispatch(loadSpots(spots.Spots))
     }
 }
+
 
 //get one spot thunk
 export const getOneSpots = (spotId) => async (dispatch) => {
@@ -176,7 +174,7 @@ const spotReducer = (state = initialState, action) =>{
                 ownerSpot[spot.id] = spot
                 })
                 // newState = {...state, ...ownerSpot}
-                console.log("ownerSpot: ", ownerSpot)
+                // console.log("ownerSpot: ", ownerSpot)
                 return ownerSpot;  
 
         case ADD_SPOTS : 
