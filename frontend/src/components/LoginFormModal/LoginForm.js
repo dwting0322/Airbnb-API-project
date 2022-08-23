@@ -23,30 +23,38 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="Login_Airbnb_logo">
+        <i class="fa-brands fa-airbnb">WonderlandBnB</i>
+      </div>
+   
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <div className="Username_Email">
       <label>
-        Username or Email
-        <input
+        Username or Email: 
+        <input 
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
         />
       </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
+      </div>
+      <div className="Password"> 
+        <label >
+          Password: 
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+      </div>
+      <button className="login" type="submit">Log In</button>
     </form>
   );
 }

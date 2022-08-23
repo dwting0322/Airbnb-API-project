@@ -11,7 +11,9 @@ import { createSpot, editSpot } from '../../store/spots';
 const SpotForm = ({spot, formType}) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    
+    const user = useSelector(state =>state.session.user)
+    // console.log("user: ", user)
+
     const [address, setAddress] = useState(spot.address ||"")
     const [city, setCity] = useState(spot.city ||"")
     const [state, setState] = useState(spot.state ||"")
@@ -25,6 +27,7 @@ const SpotForm = ({spot, formType}) => {
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     
+ 
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -32,8 +35,8 @@ const SpotForm = ({spot, formType}) => {
       if (validationErrors.length > 0) {
         return alert("Cannot Submit");
     }
-
-
+    if(!user)  return alert("Please log in/sign up before become a host!")
+   
     spot = { 
     ...spot, 
     address,

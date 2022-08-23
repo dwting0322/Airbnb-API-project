@@ -129,7 +129,7 @@ export const createSpot = (payload) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(mySpot)
     });
-    console.log("response from thunk: ", response)
+    // console.log("response from thunk: ", response)
   
     if (response.ok) {
       const spot = await response.json();

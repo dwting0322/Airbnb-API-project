@@ -1,7 +1,8 @@
-/* .navbar{
+.profile-dropdown{
     display: flex;
-    justify-content: end;
-} */
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
 .Nav_container{
     display: flex;
@@ -13,15 +14,16 @@
 }
 
 .Airbnb_logo{
-color: rgb(243, 9, 9);
-font-weight: bold;
+
 margin:10px 5px ;
 font-size: 20px;
+
 }
 
 
 .Airbnb_logo:hover{
-    text-shadow: 3px 3px 3px rgb(220, 13, 13);  
+    text-shadow: 3px 3px 3px rgb(220, 13, 13);
+   
 }
 
 
@@ -43,11 +45,13 @@ font-size: 20px;
 
 .Nav_become__host_link:hover{
     text-shadow: 3px 3px 3px rgb(171, 63, 63);  
+    text-decoration: none;
 }
 
 
 .Nav_become__host_link{
     transition: all 1s ease;
+    text-decoration: none;
 }
 
 
@@ -64,4 +68,12 @@ font-size: 20px;
 
 .Nav_Home_button{
     transition: all 0.5s ease;
+}
+
+.Nav_Link{
+    text-decoration: none;
+}
+
+.profile_button{
+    margin-top: 3px;
 }

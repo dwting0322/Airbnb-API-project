@@ -10,6 +10,10 @@ import DemoUser from '../DemoUser/demo-user';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
+  
+  const openMenu = () => {
+  
+  };
 
   let sessionLinks;
   if (sessionUser) {
@@ -19,9 +23,13 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
+        {/* <LoginFormModal />
         <NavLink to="/signup">Sign Up</NavLink>
-        <DemoUser />
+        <DemoUser /> */}
+         <div className="profile_button" onClick={openMenu}>
+          <i class="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
+         </div>
+         
       </>
     );
   }
@@ -31,12 +39,12 @@ function Navigation({ isLoaded }) {
       <ul className='Nav_container'>
         <div className='Airbnb_logo'>
           <li >
-            <NavLink to={'/'}><i class="fa-brands fa-airbnb">WonderlandBnB</i> </NavLink>
+            <NavLink to={'/'}><i class="fa-brands fa-airbnb">WonderlandBnB</i></NavLink>
           </li>
         </div>
 
         <div className='Nav_become__host_and_Home_link'>
-          <li className='Nav_become__host_link'><Link to={'/spots'}>Become Host? </Link></li>
+          <li><Link to={'/spots'} className='Nav_become__host_link'>Become Host? </Link></li>
           <li>
             <button className='Nav_Home_button'>
               {/* <NavLink exact to="/">Home</NavLink> */}
