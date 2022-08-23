@@ -1,0 +1,44 @@
+.image_in_getAllSpot {
+    display: flex;
+    height: 200px;
+    width: 240px;
+    margin: 10px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+
+.getAllSpot-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* max-width: 20%; */
+    max-width: 250px;
+}
+
+.getAllSpot-avgRating {
+    display: flex;
+    justify-content: end;
+ 
+
+}
+
+.getAllSpot_Scond_Container {
+   
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+.test{
+    /* margin-top: 30px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.image_container{
+    width: 250px;
+}
