@@ -48,11 +48,13 @@ const SpotForm = ({spot, formType}) => {
     previewImage, };
      
   if(formType === "Create Spot"){
-    const newSpot = await dispatch(createSpot(spot))
-    // .then(data => data.json())
+    const newSpot = dispatch(createSpot(spot))
+        
+      if(newSpot) history.push(`/`);
+
    
     console.log("newSpot: ", newSpot)
-    // if(newSpot) history.push(`/spots/${newSpot.id}`);
+   
     } else {
       dispatch(editSpot(spot))
       history.push(`/spots/${spot.id}`);
@@ -123,6 +125,7 @@ const SpotForm = ({spot, formType}) => {
       
       }, [address, city,state ,country, lat, lng, name, description, price, previewImage]);
 
+  
 
     return (
       <form onSubmit={handleSubmit} >

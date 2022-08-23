@@ -14,14 +14,14 @@ const SpotDetail = () => {
     const dispatch = useDispatch();
     // console.log("spotId: ", spotId)
     const spot = useSelector(state => state.spots[spotId])
-    // const review = useSelector(state => state.review)
+    const review = useSelector(state => state.reviews)
     // console.log("review: ", review)
     // const user = useSelector(state=> state.session.user)
     // console.log("user: ", user)
 
   useEffect(() => {
     dispatch(getOneSpots(spotId))
-  }, [dispatch, spotId]);
+  }, [dispatch, spotId, review]); // once review change, it re-run the  dispatch(getOneSpots(spotId))
 
 // console.log(spot)
 

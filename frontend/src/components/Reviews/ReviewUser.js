@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink, useParams } from "react-router-dom";
-import { getUserReview } from "../../store/review";
+import { deleteReview, getUserReview } from "../../store/review";
 
 
 const ReviewsUser = () => {
@@ -30,10 +30,13 @@ const ReviewsUser = () => {
                 <div key={review.id}>
                     <div><i className="fa-solid fa-star"></i> {review.stars} </div>
                     <div >{review.review}</div>
+                    {console.log(review.id)}
+                    <button onClick={()=>dispatch(deleteReview(review.id))}>Delete</button>
                 </div> 
 
            
             )) : <h3>no any review found !</h3>}
+            
         </>
     );
 };
