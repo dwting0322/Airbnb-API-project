@@ -41,7 +41,7 @@ const SpotOwner = () => {
                     <NavLink to={`/spots/${spot.id}`}>
                         <img src={spot.previewImage} alt="Vacation Property" />
                     </NavLink>
-                    <div>{`$${spot.price.toFixed(2)}`}  night</div>
+                    <div>{`$${spot.price}`}  night</div>
                     <div><i className="fa-solid fa-star"></i> {spot.avgRating? spot.avgRating.toFixed(2) : 0}</div>
                     <div>{spot.name}</div>
                     <div>{spot.address}</div>
