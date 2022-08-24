@@ -36,7 +36,7 @@ const SpotDetail = () => {
       <div className='SpotDetail_Second_Container'>
 
         <div className='SpotDetail_price'>{`$${spot.price}`}  / night</div>
-        <div><i className="fa-solid fa-star"></i> {spot.avgStarRating ? spot.avgStarRating : 0}</div>
+        <div><i className="fa-solid fa-star"></i> {spot.avgStarRating ? Number.parseFloat(spot.avgStarRating).toFixed(2) : 0}</div>
         <div>{spot.numReviews} reviews</div>
         <div>Hotel Name: {spot.name}</div>
         <div>Hotel Address: {spot.address}, {spot.city}, {spot.state}, {spot.country} </div>

@@ -46,10 +46,11 @@ const SpotsBrowser = () => {
                         </div>
                         <div className='getAllSpot-avgRating'>
                             <i className="fa-solid fa-star"></i>
-                            {spot.avgRating ? spot.avgRating : 0}
+                            {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}
                         </div>
                     </div>
                 </div>
+
 
 
             ))}
