@@ -13,7 +13,7 @@ export default function DemoUser() {
         return dispatch(sessionActions.login({ credential, password }))
         
       };
-    
+
       return (
         <form onSubmit={handleSubmit}>
           <button type="submit">Demo User</button>
