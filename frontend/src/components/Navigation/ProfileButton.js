@@ -1,14 +1,17 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import LoginFormModal from '../LoginFormModal';
-import DemoUser from '../DemoUser/demo-user';
 import './Navigation.css';
+import DemoUser from '../DemoUser/demo-user';
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -33,13 +36,15 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+ 
+
   return (
     <>
 
-      <div className="profile_button" onClick={openMenu}>
+      <div className="profile-button" onClick={openMenu}>
         <i class="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
       </div>
-      {{user} ? showMenu && (
+      { showMenu && (
 
         <ul className="profile-dropdown">
 
@@ -58,15 +63,18 @@ function ProfileButton({ user }) {
             <button onClick={logout}>Log Out</button>
           </li>
         </ul>
-      ):
-      showMenu && (
-        <ul>
-          <li><LoginFormModal /></li>
-          <li><NavLink to="/signup">Sign Up</NavLink></li>
-          <li><DemoUser /></li>
-        </ul>
-      )
-      
+      ) 
+      // :  (
+      //   <ul>
+      //     <div>
+      //       <li><LoginFormModal /></li>
+      //       {/* <li><NavLink to="/signup">Sign Up</NavLink></li> */}
+      //       <li><button onClick={handleSubmit} type="submit">Sign Up</button></li>
+      //       <li><DemoUser /></li>
+      //     </div>
+      //   </ul>
+     
+      // )
       }
     </>
   );

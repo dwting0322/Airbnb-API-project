@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -10,7 +10,14 @@ import DemoUser from '../DemoUser/demo-user';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
-  
+  const history = useHistory();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/signup")
+    
+  };
+
+
   const openMenu = () => {
   
   };
@@ -23,13 +30,12 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        {/* <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
-        <DemoUser /> */}
-         <div className="profile_button" onClick={openMenu}>
-          <i class="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
-         </div>
-         
+      <ul>
+        <li><LoginFormModal /></li>
+        <li><button onClick={handleSubmit} type="submit">Sign Up</button></li>
+        <li><DemoUser /></li>
+      </ul>  
+        {/* <ProfileButton user={sessionUser}/> */}
       </>
     );
   }
@@ -39,7 +45,7 @@ function Navigation({ isLoaded }) {
       <ul className='Nav_container'>
         <div className='Airbnb_logo'>
           <li >
-            <NavLink to={'/'}><i class="fa-brands fa-airbnb">WonderlandBnB</i></NavLink>
+            <NavLink to={'/'}><i class="fa-brands fa-airbnb">WonderlandBnB</i> </NavLink>
           </li>
         </div>
 

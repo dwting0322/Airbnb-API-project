@@ -115,7 +115,7 @@ export const createSpot = (payload) => async (dispatch) => {
     //   });
 
       dispatch(addSpots(spot));
-      
+      return spot
     //   console.log("spot: ", spot)
     }
   };

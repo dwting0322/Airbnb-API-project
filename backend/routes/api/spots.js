@@ -413,7 +413,7 @@ router.delete('/:spotId', restoreUser, requireAuth, async (req, res, next) => {
 
 // Get all Reviews by a Spot's id
 
-router.get('/:spotId/reviews', requireAuth, async (req, res, next) => {
+router.get('/:spotId/reviews', async (req, res, next) => {
     const {spotId} = req.params
     const {user} = req
 

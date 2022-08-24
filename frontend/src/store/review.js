@@ -100,6 +100,7 @@ const reviewReducer = (state = initialState, action) =>{
       let newState = {};
       switch (action.type) {
         case LOAD_ALL_SPOT_REVIEWS:
+        
             //   console.log("action.review: ", action.review)
                 action.reviews.forEach(review => {
                 newState[review.id] = review

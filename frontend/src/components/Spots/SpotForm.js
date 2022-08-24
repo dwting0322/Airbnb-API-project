@@ -51,9 +51,9 @@ const SpotForm = ({spot, formType}) => {
     previewImage, };
      
   if(formType === "Create Spot"){
-    const newSpot = dispatch(createSpot(spot))
+    const newSpot = await dispatch(createSpot(spot))
         
-      if(newSpot) history.push(`/`);
+      if(newSpot) history.push(`/spots/${newSpot.id}`);
 
    
     console.log("newSpot: ", newSpot)
