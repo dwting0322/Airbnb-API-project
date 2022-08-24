@@ -26,8 +26,13 @@ const ReviewForm = ({ myReview, formType }) => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const dispatch = useDispatch()
+ 
+  
+    const filter = reviews.filter(review => review?.userId === user?.id)
 
-  const filter = reviews.filter(review => review.userId === user.id)
+  
+
+  
   
 
   const handleSubmit = (e) => {
@@ -86,7 +91,7 @@ const ReviewForm = ({ myReview, formType }) => {
 
 
 
-  return  !filter.length && (
+  return  user && !filter.length && (
     <form onSubmit={handleSubmit} >
       <h2>{formType}</h2>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteSpot, getOwnerSpots } from "../../store/spots";
 
@@ -10,16 +10,17 @@ import { deleteSpot, getOwnerSpots } from "../../store/spots";
 const SpotOwner = () => {
 
     // console.log("beginning")
-
+    const history = useHistory()
 
     const dispatch = useDispatch();
 
     const spotObj = useSelector(state => state.spots)
     // console.log("spotObj: ", spotObj)
     const spots = Object.values(spotObj)
-    console.log("spot: ", spots)
+    // console.log("spot: ", spots)
 
-    // const user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session.user)
+    const filter = spots.filter(spot => spot?.ownerId === user?.id)
     // console.log("user: ", user)
 
 
@@ -27,9 +28,13 @@ const SpotOwner = () => {
         dispatch(getOwnerSpots())
     }, [dispatch])
 
+    if(!user) {
+        alert("You need to log in first to manage your spot !")
+        history.push("/")
+    }
 
     if (!spots) return null
-    return (
+    return filter.length && (
         <>
             {spots.map(spot =>
                 <div key={spot.id}>
@@ -47,7 +52,7 @@ const SpotOwner = () => {
                 </div>
             )}
         </>
-    )
+    ) 
 };
 
 export default SpotOwner;

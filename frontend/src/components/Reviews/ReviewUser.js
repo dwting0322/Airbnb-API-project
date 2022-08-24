@@ -8,11 +8,13 @@ const ReviewsUser = () => {
 
     const reviewsObj = useSelector((state) => state.reviews)
     const reviews = Object.values(reviewsObj)
-    console.log('reviewsObjUser from component: ', reviewsObj)
-    console.log('reviewsUser from component: ', reviews)
+    // console.log('reviewsObjUser from component: ', reviewsObj)
+    // console.log('reviewsUser from component: ', reviews)
 
     const dispatch = useDispatch();
 
+    const user = useSelector((state)=> state.session.user)
+// console.log("user", user)
 
     useEffect(() => {
         dispatch(getUserReview());
@@ -26,7 +28,7 @@ const ReviewsUser = () => {
         <>
         <h2>All my review: </h2>
   
-            {reviews.length ? reviews.map(review => (
+            {user && reviews.length ? reviews.map(review => (
                 <div key={review.id}>
                     <div><i className="fa-solid fa-star"></i> {review.stars} </div>
                     <div >{review.review}</div>
@@ -35,7 +37,7 @@ const ReviewsUser = () => {
                 </div> 
 
            
-            )) : <h3>no any review found !</h3>}
+            )) : <h3>No any review found ! Please log in to see all your review!</h3>}
             
         </>
     );
