@@ -47,7 +47,9 @@
 .SpotDetail_Container {
     display: flex;
     flex-direction: column;
-    /* max-width: 1000px; */
+    /* justify-content: center; */
+    align-items: center;
+    /* max-width: 1500px; */
 }
 
 .SpotDetail_img_Container {
@@ -69,6 +71,8 @@
 .SpotDetail_Second_Container {
     margin-left: 320px;
     margin-top: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 .Things_to_know_container {
