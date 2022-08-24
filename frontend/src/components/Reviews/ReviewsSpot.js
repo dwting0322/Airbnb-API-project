@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { getSpotReview } from "../../store/review";
-
+import "./Review.css"
 
 
 

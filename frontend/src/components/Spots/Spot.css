@@ -19,45 +19,45 @@
 
 .getAllSpot-avgRating {
     display: flex;
-    justify-content: end;
- 
+    justify-content: flex-end;
+
 
 }
 
 .getAllSpot_Scond_Container {
-   
+
     display: flex;
     width: 250px;
     justify-content: space-between;
     margin: 0px 10px;
 }
 
-.test{
+.test {
     /* margin-top: 30px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.image_container{
+.image_container {
     width: 250px;
 }
 
 /* spot detail */
-.SpotDetail_Container{
+.SpotDetail_Container {
     display: flex;
     flex-direction: column;
     max-width: 1000px;
 }
 
-.SpotDetail_img_Container{
+.SpotDetail_img_Container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-   
+
 }
 
-.SpotDetail_img{
+.SpotDetail_img {
     display: flex;
     width: 450px;
     height: 400px;
@@ -66,27 +66,41 @@
     margin-right: 15px;
 }
 
-.SpotDetail_Second_Container{
+.SpotDetail_Second_Container {
     margin-left: 280px;
     margin-top: 15px;
 }
 
-.Things_to_know_container{
+.Things_to_know_container {
     display: flex;
 }
 
-.House_rule_container{
-margin-top: 20px;
-margin-right: 20px;
+.House_rule_container {
+    margin-top: 20px;
+    font-size: 13px;
+    margin-right: 10px;
 }
 
-.Things_to_know_words{
+.Health_safety_container {
+    margin-top: 20px;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.Cancellation_policy_container {
+    margin-top: 20px;
+    font-size: 13px;
+
+}
+
+
+.Things_to_know_words {
     margin-top: 10px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
-.House_rule_words{
+
+.House_rule_words {
     margin-bottom: 20px;
     font-weight: bold;
 }
-

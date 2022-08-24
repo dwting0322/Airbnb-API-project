@@ -15,7 +15,7 @@ const SpotDetail = () => {
   // console.log("spotId: ", spotId)
   const spot = useSelector(state => state.spots[spotId])
   const review = useSelector(state => state.reviews)
-  // console.log("review: ", review)
+  console.log("review: ", review)
   // const user = useSelector(state=> state.session.user)
   // console.log("user: ", user)
 
@@ -53,12 +53,12 @@ const SpotDetail = () => {
             <div><i class="fa-solid fa-clock"></i> Check-in: After 4:00 PM</div>
             <div><i class="fa-solid fa-clock"></i> Checkout: 11:00 AM</div>
             <div><i class="fa-solid fa-door-open"></i> Self check-in with keypad</div>
-            <div><i class="fa-solid fa-ban-smoking"></i> No smoking</div>
+            <div className='No_Smoking'><i class="fa-solid fa-ban-smoking"> </i> No smoking</div>
             <div><i class="fa-solid fa-users-slash"></i> No parties or events</div>
             <div><i class="fa-solid fa-paw"></i> Pets are allowed</div>
           </div>
 
-          <div className="House_rule_container">
+          <div className="Health_safety_container">
             <div className='House_rule_words'>Health & safety :</div>
             <div><i class="fa-solid fa-viruses"></i> Airbnb's COVID-19 safety practices apply</div>
             <div><i class="fa-solid fa-circle-exclamation"></i> Security camera/recording device</div>
@@ -66,7 +66,7 @@ const SpotDetail = () => {
             <div><i class="fa-solid fa-smog"></i> Carbon monoxide alarm</div>
             <div><i class="fa-solid fa-volcano"></i> Smoke alarm</div>
           </div>
-          <div className="House_rule_container">
+          <div className="Cancellation_policy_container">
             <div className='House_rule_words'>Cancellation policy :</div>
             <div>Free cancellation for 48 hours.</div>
             <div>Review the Host's full cancellation policy which</div>
