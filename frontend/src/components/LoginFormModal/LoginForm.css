@@ -8,21 +8,32 @@
 body {
     background-color: #FF9500;
   } */
+.form{
+  box-shadow: 3px 3px 3px rgba(250, 235, 235, 0.6);
 
+}
   .Username_Email{
     margin-top: 50px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .input:focus{
+    background-color:rgb(253, 240, 224)
   }
 
   .Password{
     margin: 5px;
-    margin-left: 30px;
+    margin-left: 60px;
   }
 
   .login{
-    margin-left: 30px;
+    margin-left: 60px;
     margin-bottom: 50px;
+  }
+
+  .fa-rocket{
+    margin-left: 5px;
   }
 
   .Login_Airbnb_logo:hover{

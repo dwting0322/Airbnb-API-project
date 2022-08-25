@@ -22,7 +22,7 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="Login_Airbnb_logo">
         <i class="fa-brands fa-airbnb">WonderlandBnB</i>
       </div>
@@ -35,7 +35,7 @@ function LoginForm() {
       <div className="Username_Email">
       <label>
         Username or Email: 
-        <input 
+        <input className="input"
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
@@ -44,9 +44,9 @@ function LoginForm() {
       </label>
       </div>
       <div className="Password"> 
-        <label >
+        <label>
           Password: 
-          <input
+          <input className="input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -54,7 +54,9 @@ function LoginForm() {
           />
         </label>
       </div>
-      <button className="login" type="submit">Log In</button>
+      <button className="login" type="submit">Log In </button>
+      <i className="fa-solid fa-rocket"></i>
+      
     </form>
   );
 }
