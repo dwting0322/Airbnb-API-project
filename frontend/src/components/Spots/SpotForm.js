@@ -132,18 +132,32 @@ const SpotForm = ({spot, formType}) => {
 
     return (
       <form onSubmit={handleSubmit} >
-        <h2>{formType}</h2>
+        <h1 className='Create_spot_word'>{formType}:</h1>
+        <h2 className='Create_spot_word'>Find out what you</h2>
+        <h2 className='Create_spot_word'>could earn as a Host</h2>
+      <div>
+        <div>Hosts in your area earn an average of $3,800 / month</div>
+        <div></div>
+        <div></div>
 
+
+
+
+      </div>
+
+
+
+    <div className='Create_Spot_Container'>
         <ul className="errors">
             {hasSubmitted && validationErrors.map(error => (
-            <li key={error}>
+            <li className='Create_Spot_error' key={error}>
                 {error}
             </li>
             ))}         
         </ul>
-
+    <div className="Create_spot_Address">
         <label>
-          Address
+          Address:
           <input 
             type="text"
             placeholder="address..."
@@ -151,8 +165,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setAddress(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_City">
         <label>
-          City
+          City:
           <input 
           type="text"
           placeholder="city..."
@@ -160,8 +177,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setCity(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_State">
         <label>
-           State
+           State:
           <input 
             type="text"
             placeholder="state..."
@@ -169,8 +189,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setState(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Country">
         <label>
-            Country
+            Country:
           <input 
             type="text"
             placeholder="country..."
@@ -178,8 +201,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setCountry(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Lat">  
         <label>
-            Lat
+            Lat:
           <input 
             type="number"
             placeholder="latitude..."
@@ -187,8 +213,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setLat(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Lng">  
         <label>
-            Lng
+            Lng:
           <input 
             type="number"
             placeholder="longitude..."
@@ -196,8 +225,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setLng(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Name">  
         <label>
-            Name
+            Name:
           <input 
             type="text"
             placeholder="property name..."
@@ -205,8 +237,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setName(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Description">
         <label>
-            Description
+            Description:
           <textarea 
             type="text"
             placeholder="description..."
@@ -214,8 +249,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setDescription(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Price">
         <label>
-            Price
+            Price:
           <input 
             type="number"
             placeholder="price..."
@@ -223,8 +261,11 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setPrice(e.target.value)}
           />
         </label>
+      </div>
+
+      <div className="Create_spot_Image_Url">
         <label>
-            Image Url
+            Image Url:
           <input 
             type='url'
             placeholder="please upload the property's url..."
@@ -232,8 +273,10 @@ const SpotForm = ({spot, formType}) => {
             onChange={e => setPreviewImage(e.target.value)}
           />
         </label>
-        <input type="submit" value={formType}/>
-      
+      </div>
+    
+        <input className="Create_spot_button" type="submit" value={formType}/>
+      </div>  
       </form>
     );
   }

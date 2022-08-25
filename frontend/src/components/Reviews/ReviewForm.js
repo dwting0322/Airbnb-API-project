@@ -93,7 +93,7 @@ const ReviewForm = ({ myReview, formType }) => {
 
   return  user && !filter.length && (
     <form onSubmit={handleSubmit} >
-      <h2>{formType}</h2>
+      <h2>{formType}:</h2>
 
       <ul className="errors">
         {hasSubmitted && validationErrors.map(error => (

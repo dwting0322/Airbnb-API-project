@@ -58,8 +58,8 @@ function ProfileButton({ user, setShowModal }) {
 
         <ul className="profile-dropdown">
 
-          <li><i className="fa-solid fa-user-check"></i> {user.username}</li>
-          <li><i className="fa-solid fa-at"></i> {user.email}</li>
+          <li className="username"><i className="fa-solid fa-user-check"></i> {user.username}</li>
+          <li className="email"><i className="fa-solid fa-at"></i> {user.email}</li>
 
           <li>
             <NavLink to={'/spots/current'} className="Nav_Link"><i className="fa-solid fa-house"></i> Host your home</NavLink>
@@ -70,9 +70,10 @@ function ProfileButton({ user, setShowModal }) {
           </li>
 
           <li>
-            <button className="button" onClick={logout}><i className="fa-solid fa-plug-circle-xmark"></i> Log Out</button>
+            <button className="Logout_button" onClick={logout}><i className="fa-solid fa-plug-circle-xmark"></i>Log Out</button>
           </li>
         </ul>
+
       ) 
       :  showMenu && (
         <ul>

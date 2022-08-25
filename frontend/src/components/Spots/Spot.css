@@ -1,7 +1,7 @@
 .image_in_getAllSpot {
     display: flex;
-    height: 200px;
-    width: 240px;
+    height: 300px;
+    width: 340px;
     margin-left: 10px;
     border-radius: 12px;
     margin-top: 30px;
@@ -15,8 +15,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     /* max-width: 20%; */
-    max-width: 250px;
-    margin-right: 30px;
+    max-width: 350px;
+    margin-right: 10px;
     margin-left: 10px;
     
 }
@@ -31,16 +31,16 @@
 .getAllSpot_Second_Container {
 
     display: flex;
-    width: 250px;
+    width: 350px;
     justify-content: space-between;
-    margin: 0px 10px;
+    margin: 5px 10px;
 }
 
 .test {
     /* margin-top: 30px; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 /* .image_container {
@@ -121,4 +121,88 @@
     font-size: 16px;
     margin-bottom: -5px;
     
+}
+
+/* Create Spot *******************************************/
+
+.Create_spot_word{
+    text-align: center;
+}
+
+.Create_Spot_Container{
+   text-align: center;
+   
+}
+
+.Create_spot_Address{
+    margin: 5px;
+}
+
+.Create_spot_City{
+    margin: 5px;
+    margin-left: 30px;
+}
+
+.Create_spot_State{
+    margin: 5px;
+    margin-left: 27px;
+}
+
+.Create_spot_Country{
+    margin: 5px;
+    margin-right: 3px;
+}
+
+.Create_spot_Lat{
+    margin: 5px;
+    margin-left: 37px;
+}
+
+.Create_spot_Lng{
+    margin: 5px;
+    margin-left: 33px;
+}
+
+.Create_spot_Name{
+    margin: 5px;
+    margin-left: 20px;
+}
+
+.Create_spot_Description{
+    margin: 5px;
+    margin-right: 33px;
+}
+
+.Create_spot_Price{
+    margin: 5px;
+    margin-left: 24px;
+}
+
+.Create_spot_Image_Url{
+    margin: 5px;
+    margin-right: 18px;
+}
+
+.Create_Spot_error{
+    list-style-type: none;
+    
+}
+
+
+.Create_spot_button{
+    width: 13.6%;
+    margin-left: 57px;
+    background-color: rgb(232, 63, 92);
+    color:white;
+    border: 0;
+    height: 23px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 1s ease;
+
+}
+
+.Create_spot_button:hover{
+    background-color:red
+    /* transform: scale(1); */
 }

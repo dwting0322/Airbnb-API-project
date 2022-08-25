@@ -1,54 +1,51 @@
-/* *{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-
-body {
-    background-color: #FF9500;
-  } */
-.form{
-  box-shadow: 3px 3px 3px rgba(250, 235, 235, 0.6);
+.form {
+  box-shadow: 5px 5px 5px rgba(247, 245, 245, 0.6);
 
 }
-  .Username_Email{
-    margin-top: 50px;
-    margin-left: 60px;
-    margin-right: 60px;
-  }
 
-  .input:focus{
-    background-color:rgb(253, 240, 224)
-  }
-
-  .Password{
-    margin: 5px;
-    margin-left: 60px;
-  }
-
-  .login{
-    margin-left: 60px;
-    margin-bottom: 50px;
-  }
-
-  .fa-rocket{
-    margin-left: 5px;
-  }
-
-  .Login_Airbnb_logo:hover{
-    transform: scale(1, 2);
-    text-shadow: 5px 3px 3px rgb(34, 13, 220);  
+.Username_Email {
+  margin-top: 50px;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
+.input:focus {
+  background-color: rgb(253, 240, 224)
+}
 
-.Login_Airbnb_logo{
+.Password {
+  margin: 5px;
+  margin-left: 60px;
+}
+
+.login_login {
+  margin-left: 60px;
+  margin-bottom: 50px;
+}
+
+.fa-rocket {
+  margin-left: 5px;
+  transition: all 1s ease;
+}
+
+.fa-rocket:hover {
+  transform: rotate(0.62turn);
+
+}
+
+.Login_Airbnb_logo {
   font-size: 15px;
-  margin: 8px;
-  color:red;
-    transition: all 1s ease;
-   
+  margin: 10px;
+  margin-left: 20px;
+  color: red;
+  transition: all 1s ease;
+
+
 }
 
 
+.Login_Airbnb_logo:hover {
+  transform: scale(1.1, 1.1);
+  text-shadow: 5px 3px 3px rgba(34, 13, 220, 0.5);
 
+}

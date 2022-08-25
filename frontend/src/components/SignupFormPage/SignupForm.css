@@ -1,0 +1,62 @@
+.Sign_up_container{
+    text-align: center
+   
+}
+
+.Sign_up_words{
+    text-align: center
+}
+
+.Firstname{
+    margin: 5px;
+}
+
+.Lastname{
+    margin: 5px;
+}
+
+.Lastname_input{
+    margin-left: 2px;
+}
+
+.Email{
+    margin: 5px;
+}
+
+.Email_input{
+    margin-left: 26px;
+}
+
+.Username{
+    margin: 5px;
+}
+
+.Username_input{
+    margin-left: 1px;
+}
+.Signup_Password{
+    margin-left: 3px;
+}
+.Confirm_Password{
+    margin-right: 56px;
+    margin-top: 5px;
+}
+
+.Signup_Button{
+    width: 13.6%;
+    margin-left: 70px;
+    margin-top: 5px;
+    background-color: rgb(232, 63, 92);
+    color:white;
+    border: 0;
+    height: 23px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 1s ease;
+
+}
+
+.Signup_Button:hover{
+    background-color:red
+    /* transform: scale(1); */
+}

@@ -7,30 +7,51 @@
 
 .profile-dropdown > li {
     list-style: none;
+    margin: 5px;
    
 }
 
 
-.Nav_container{
+.Navbar_container{
     display: flex;
     justify-content: space-between;
     list-style: none;
-    background-color:lightyellow;
+    /* background-color:rgb(247, 247, 236); */
     margin-left: 16px;
     margin-right: 10px;
 }
 
+.fa-brands{
+    color: red;
+    font-weight: bold;
+}
+
+.username:hover{
+background-color: aliceblue;
+}
+
+.email:hover{
+    background-color: aliceblue;
+    }
+
 .fa-at{
     font-size: 18px;
     margin-right: 4px;
-    margin-left: -2px;
+    margin-left: 2px;
 }
 
 .fa-plug-circle-xmark{
-    font-size: 18px;
+    font-size: 20px;
     margin-left: -6px;
-    margin-right: 1px;
+    /* margin-right: 5px; */
+    padding-right: 5px;
+    padding-bottom: 5px;
 }
+
+.Airbnb_logo:visited {
+    color: inherit;
+  }
+
 
 .fa-house{
     margin-right: 2px;
@@ -41,16 +62,13 @@
 
 
 .Airbnb_logo{
-
 margin:10px 5px ;
-font-size: 20px;
-
+font-size: 30px;
 }
 
 
 .Airbnb_logo:hover{
-    text-shadow: 3px 3px 3px rgb(220, 13, 13);
-   
+    text-shadow: 5px 5px 3px rgb(220, 13, 13);
 }
 
 
@@ -63,39 +81,51 @@ font-size: 20px;
     display: flex;
     margin:5px 10px ;
     text-decoration: none;
+    font-size: 20px;
+    padding-top: 5px;
+  
 }
 .Nav_become__host_link{
   display: flex;
   margin:5px 10px ;
   text-decoration: 'none';
+ 
 }
 
 .Nav_become__host_link:hover{
     text-shadow: 3px 3px 3px rgb(171, 63, 63);  
     text-decoration: none;
+    background-color: rgb(215, 211, 211);
 }
 
 
 .Nav_become__host_link{
     transition: all 1s ease;
     text-decoration: none;
+    color: inherit;
+    font-size: 20px;
+    padding: 4px 10px;
+    border-radius: 15px;
+    border: 1px solid white;
 }
 
 
 .Nav_Home_button{
     text-decoration: 'none';
-    border-radius: 12px;
+    border-radius: 20px;
     background-color:white;
-    
+    transition: all 0.2s ease;
 }
+
+/* .Nav_Home_button{
+    transition: all 0.5s ease;
+} */
 
 .Nav_Home_button:hover{
-    box-shadow: 3px 3px 3px rgb(46, 42, 42);  
+    box-shadow: 1px 3px 3px rgb(29, 27, 27);  
 }
 
-.Nav_Home_button{
-    transition: all 0.5s ease;
-}
+
 
 .Nav_Link{
     text-decoration: none;
@@ -109,34 +139,36 @@ font-size: 20px;
 
 .Nav_Link:hover{
     color: blue;
+    background-color: aliceblue;
 }
 
 .profile_button{
     margin-top: 5px;
-   
-    border-radius: 15px;
-    padding: 2px 3px;
-    background-color: white
+    border: 2px solid rgb(224, 220, 220);
+    border-radius: 20px;
+    padding: 6px 12px;
+    /* background-color: white; */
+    cursor: pointer;
 }
 
 
-.button{
+.Logout_button{
     border: none;
     outline-style:hidden ;
     background: none;
      margin-bottom: 5px;
      margin-right: 5px;
      transition: all 0.5s ease;
-     margin-left: 0;
+     margin-left: 2px;
      cursor:pointer;
-    
-     
+     font-size: 18px;
 }
 
 
-.button:hover{
+.Logout_button:hover{
     box-shadow: 3px 3px 3px rgba(46, 42, 42, 0.3);
     color: blue;
+    background-color: aliceblue;
 }
 
 .list{
@@ -144,10 +176,10 @@ font-size: 20px;
 }
 
 .fa-user{
-    margin-right: 7px;
+    margin-right: 8px;
 }
 
 .fa-user-astronaut{
     font-size: 17px;
-    margin-right: 5px;
+    margin-right: 10px;
 }

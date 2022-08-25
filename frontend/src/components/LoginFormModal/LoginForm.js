@@ -1,30 +1,41 @@
 // frontend/src/components/LoginFormModal/LoginForm.js
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./LoginForm.css"
+
 
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  
+  const user = useSelector(state => state.session.user);
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data && data.errors) {
+          if(!user) return alert("Please enter a valid Username/Email or Password")
+          setErrors(data.errors);
+        }
       }
     );
   };
 
+
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="Login_Airbnb_logo">
-        <i class="fa-brands fa-airbnb">WonderlandBnB</i>
+        <i className="fa-brands fa-airbnb">WonderlandBnB</i>
       </div>
    
       <ul>
@@ -54,7 +65,7 @@ function LoginForm() {
           />
         </label>
       </div>
-      <button className="login" type="submit">Log In </button>
+      <button className="login_login" type="submit">Log In </button>
       <i className="fa-solid fa-rocket"></i>
       
     </form>

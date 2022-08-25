@@ -55,15 +55,15 @@ function Navigation({ isLoaded }) {
 
   return (
     <div>
-      <ul className='Nav_container'>
+      <ul className='Navbar_container'>
         <div className='Airbnb_logo'>
-          <li >
-            <NavLink to={'/'}><i class="fa-brands fa-airbnb">WonderlandBnB</i> </NavLink>
+          <li>
+            <NavLink to={'/'}><i className="fa-brands fa-airbnb">WonderlandBnB</i> </NavLink>
           </li>
         </div>
 
         <div className='Nav_become__host_and_Home_link'>
-          <li><Link to={'/spots'} className='Nav_become__host_link'>Become Host? </Link></li>
+          <li><Link to={'/spots'} className='Nav_become__host_link'> Become Host? </Link></li>
           <li>
             <div className='Nav_Home_button'>
               {/* <NavLink exact to="/">Home</NavLink> */}
