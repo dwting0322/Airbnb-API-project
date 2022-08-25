@@ -4,14 +4,41 @@
     justify-content: flex-start;
 }
 
+
+.profile-dropdown > li {
+    list-style: none;
+   
+}
+
+
 .Nav_container{
     display: flex;
     justify-content: space-between;
     list-style: none;
     background-color:lightyellow;
-    margin-left: 17px;
+    margin-left: 16px;
     margin-right: 10px;
 }
+
+.fa-at{
+    font-size: 18px;
+    margin-right: 4px;
+    margin-left: -2px;
+}
+
+.fa-plug-circle-xmark{
+    font-size: 18px;
+    margin-left: -6px;
+    margin-right: 1px;
+}
+
+.fa-house{
+    margin-right: 2px;
+}
+.fa-pen{
+    margin-right: 4px;
+}
+
 
 .Airbnb_logo{
 
@@ -63,7 +90,7 @@ font-size: 20px;
 }
 
 .Nav_Home_button:hover{
-    box-shadow: 3px 3px 3px rgb(69, 61, 61);  
+    box-shadow: 3px 3px 3px rgb(46, 42, 42);  
 }
 
 .Nav_Home_button{
@@ -72,8 +99,55 @@ font-size: 20px;
 
 .Nav_Link{
     text-decoration: none;
+    color: inherit;
+}
+
+.Nav_Link:visited{
+    text-decoration: none; 
+    
+} 
+
+.Nav_Link:hover{
+    color: blue;
 }
 
 .profile_button{
-    margin-top: 3px;
+    margin-top: 5px;
+   
+    border-radius: 15px;
+    padding: 2px 3px;
+    background-color: white
+}
+
+
+.button{
+    border: none;
+    outline-style:hidden ;
+    background: none;
+     margin-bottom: 5px;
+     margin-right: 5px;
+     transition: all 0.5s ease;
+     margin-left: 0;
+     cursor:pointer;
+    
+     
+}
+
+
+.button:hover{
+    box-shadow: 3px 3px 3px rgba(46, 42, 42, 0.3);
+    color: blue;
+}
+
+.list{
+    list-style: none
+}
+
+.fa-user{
+    margin-right: 7px;
+}
+
+.fa-user-astronaut{
+    font-size: 17px;
+    margin-right: 5px;
 }

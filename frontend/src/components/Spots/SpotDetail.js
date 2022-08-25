@@ -36,8 +36,8 @@ const SpotDetail = () => {
       <div className='SpotDetail_Second_Container'>
 
         <div className='SpotDetail_price'>{`$${spot.price}`}  / night</div>
-        <div><i className="fa-solid fa-star"></i> {spot.avgStarRating ? Number.parseFloat(spot.avgStarRating).toFixed(2) : 0}</div>
-        <div>{spot.numReviews} reviews</div>
+        <div><i className="fa-solid fa-star"></i> {spot.avgStarRating ? Number.parseFloat(spot.avgStarRating).toFixed(2) : 0} · {spot.numReviews} reviews</div>
+        {/* <div>{spot.numReviews} reviews</div> */}
         <div>Hotel Name: {spot.name}</div>
         <div>Hotel Address: {spot.address}, {spot.city}, {spot.state}, {spot.country} </div>
         {/* <div> </div> */}
@@ -45,26 +45,44 @@ const SpotDetail = () => {
         <div><ReviewsSpot /></div>
         <div><CreateReviewForm /></div>
 
+        <div className='What_this_place_offers'>What this place offers :</div>
+        <div className='Things_to_know_container'>
+          <div className='Health_safety_container'>
+            <div><i className="fa-solid fa-city"></i> City view</div>
+            <div><i className="fa-solid fa-kitchen-set"></i> Kitchen</div>
+            <div><i className="fa-solid fa-dumbbell"></i> Dedicated workout place</div>
+            <div><i className="fa-solid fa-person-swimming"></i> Private outdoor pool - open 24 hours</div>
+            <div><i className="fa-solid fa-tv"></i> HDTV with premium cable</div>
+          </div>
+          <div className='Health_safety_container'>
+            <div><i className="fa-solid fa-mountain-sun"></i> Mountain view</div>
+            <div><i className="fa-solid fa-wifi"></i> Wifi</div>
+            <div><i className="fa-solid fa-car"></i> Free parking on premises</div>
+            <div><i className="fa-solid fa-hot-tub-person"></i> Private hot tub</div>
+            <div><i className="fa-solid fa-video"></i> Security cameras on property</div>
+          </div>
+          </div>
+
         <div className='Things_to_know_words'>Things to know :</div>
         <div className='Things_to_know_container'>
           
           <div className="House_rule_container">
             <div className='House_rule_words'>House rules :</div>
-            <div><i class="fa-solid fa-clock"></i> Check-in: After 4:00 PM</div>
-            <div><i class="fa-solid fa-clock"></i> Checkout: 11:00 AM</div>
-            <div><i class="fa-solid fa-door-open"></i> Self check-in with keypad</div>
-            <div className='No_Smoking'><i class="fa-solid fa-ban-smoking"> </i> No smoking</div>
-            <div><i class="fa-solid fa-users-slash"></i> No parties or events</div>
-            <div><i class="fa-solid fa-paw"></i> Pets are allowed</div>
+            <div><i className="fa-solid fa-clock"></i> Check-in: After 4:00 PM</div>
+            <div><i className="fa-solid fa-clock"></i> Checkout: 11:00 AM</div>
+            <div><i className="fa-solid fa-door-open"></i> Self check-in with keypad</div>
+            <div className='No_Smoking'><i className="fa-solid fa-ban-smoking"> </i> No smoking</div>
+            <div><i className="fa-solid fa-users-slash"></i> No parties or events</div>
+            <div><i className="fa-solid fa-paw"></i> Pets are allowed</div>
           </div>
 
           <div className="Health_safety_container">
             <div className='House_rule_words'>Health & safety :</div>
-            <div><i class="fa-solid fa-viruses"></i> Airbnb's COVID-19 safety practices apply</div>
-            <div><i class="fa-solid fa-circle-exclamation"></i> Security camera/recording device</div>
-            <div><i class="fa-solid fa-circle-exclamation"></i> Pool/hot tub without a gate or lock</div>
-            <div><i class="fa-solid fa-smog"></i> Carbon monoxide alarm</div>
-            <div><i class="fa-solid fa-volcano"></i> Smoke alarm</div>
+            <div><i className="fa-solid fa-viruses"></i> Airbnb's COVID-19 safety practices apply</div>
+            <div><i className="fa-solid fa-circle-exclamation"></i> Security camera/recording device</div>
+            <div><i className="fa-solid fa-circle-exclamation"></i> Pool/hot tub without a gate or lock</div>
+            <div><i className="fa-solid fa-smog"></i> Carbon monoxide alarm</div>
+            <div><i className="fa-solid fa-volcano"></i> Smoke alarm</div>
           </div>
           <div className="Cancellation_policy_container">
             <div className='House_rule_words'>Cancellation policy :</div>

@@ -28,7 +28,7 @@ const ReviewsSpot = () => {
 
     return (
         <>
-        <h2>All the spot review: </h2>
+        <h3>All the spot review: </h3>
   
             {reviews.length ? reviews.map(review => (
                 <div key={review.id}>

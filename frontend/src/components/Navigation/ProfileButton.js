@@ -5,14 +5,24 @@ import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import DemoUser from '../DemoUser/demo-user';
+import {login} from "../../store/session";
 
 
-function ProfileButton({ user }) {
+
+function ProfileButton({ user, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [showMenu, setShowMenu] = useState(false);
+ 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/signup")
+    
+  };
+
+
 
   const openMenu = () => {
     if (showMenu) return;
@@ -41,40 +51,40 @@ function ProfileButton({ user }) {
   return (
     <>
 
-      <div className="profile-button" onClick={openMenu}>
-        <i class="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
+      <div className="profile_button" onClick={openMenu}>
+        <i className="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
       </div>
-      { showMenu && (
+      { user ? showMenu && (
 
         <ul className="profile-dropdown">
 
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li><i className="fa-solid fa-user-check"></i> {user.username}</li>
+          <li><i className="fa-solid fa-at"></i> {user.email}</li>
 
           <li>
-            <NavLink to={'/spots/current'} className="Nav_Link">Host your home</NavLink>
+            <NavLink to={'/spots/current'} className="Nav_Link"><i className="fa-solid fa-house"></i> Host your home</NavLink>
           </li>
 
           <li>
-            <NavLink to={'/reviews/current'} className="Nav_Link">Host your experience</NavLink>
+            <NavLink to={'/reviews/current'} className="Nav_Link"><i className="fa-solid fa-pen"></i> Host your experience</NavLink>
           </li>
 
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className="button" onClick={logout}><i className="fa-solid fa-plug-circle-xmark"></i> Log Out</button>
           </li>
         </ul>
       ) 
-      // :  (
-      //   <ul>
-      //     <div>
-      //       <li><LoginFormModal /></li>
-      //       {/* <li><NavLink to="/signup">Sign Up</NavLink></li> */}
-      //       <li><button onClick={handleSubmit} type="submit">Sign Up</button></li>
-      //       <li><DemoUser /></li>
-      //     </div>
-      //   </ul>
+      :  showMenu && (
+        <ul>
+          <div>
+          <li className="list"><i className="fa-solid fa-user"></i><button className="button" onClick={() => setShowModal(true)}>Log In</button></li>
+            {/* <li><NavLink to="/signup">Sign Up</NavLink></li> */}
+            <li className="list"><i className="fa-solid fa-user-plus"></i><button className="button" onClick={handleSubmit}>Sign Up</button></li>
+            <li className="list"><i className="fa-solid fa-user-astronaut"></i><button className="button" onClick = { () =>  dispatch(login({ credential:"Demo-lition", password:"password", }))}>Demo User</button></li>
+          </div>
+        </ul>
      
-      // )
+      )
       }
     </>
   );
