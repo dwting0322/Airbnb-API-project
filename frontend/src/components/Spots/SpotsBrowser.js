@@ -38,7 +38,7 @@ const SpotsBrowser = () => {
                         </NavLink>
                     </div>
 
-                    <div className='getAllSpot_Scond_Container'>
+                    <div className='getAllSpot_Second_Container'>
                         <div>
                             <div className='getAllSpot-name'>{spot.name}</div>
                             <div className='getAllSpot-city_state'>{spot.city}, {spot.state} </div>
