@@ -127,6 +127,9 @@
 
 .Create_spot_word{
     text-align: center;
+    font-weight: bold;
+    padding-top: 0;
+    padding-bottom: 5px;
 }
 
 .Create_Spot_Container{

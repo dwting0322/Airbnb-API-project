@@ -136,13 +136,9 @@ const SpotForm = ({spot, formType}) => {
         <h2 className='Create_spot_word'>Find out what you</h2>
         <h2 className='Create_spot_word'>could earn as a Host</h2>
       <div>
-        <div>Hosts in your area earn an average of $3,800 / month</div>
-        <div></div>
-        <div></div>
-
-
-
-
+        <div className='Create_spot_word'>Hosts in your area earn an average of $3,800 / month</div>
+        <div className='Create_spot_word'>They earn $152 / night</div>
+        <div className='Create_spot_word'>They're booked 25 nights / month</div>
       </div>
 
 
