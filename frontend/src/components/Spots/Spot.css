@@ -40,7 +40,8 @@
     /* margin-top: 30px; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
+   
 }
 
 /* .image_container {
@@ -67,18 +68,22 @@
 
 .SpotDetail_img {
     display: flex;
-    width: 450px;
-    height: 400px;
+    width: 850px;
+    height: 700px;
     border-radius: 10px;
     margin-left: 18px;
     margin-right: 15px;
+    margin-top: 50px;
 }
 
 .SpotDetail_Second_Container {
-    margin-left: 250px;
+    margin-left: 200px;
     margin-top: 15px;
-    justify-content: center;
-    align-items: center;
+    font-size: 25px;
+}
+
+.SpotDetail_price{
+    font-weight: bold;
 }
 
 .Things_to_know_container {
@@ -87,27 +92,26 @@
 
 .House_rule_container {
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 20px;
     margin-right: 10px;
 }
 
 .Health_safety_container {
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 20px;
     margin-right: 10px;
 }
 
 .Cancellation_policy_container {
     margin-top: 20px;
-    font-size: 13px;
-
+    font-size: 20px;
 }
 
 
 .Things_to_know_words {
     margin-top: 20px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 25px;
 }
 
 .House_rule_words {
@@ -118,22 +122,58 @@
 .What_this_place_offers{
     margin-top: 20px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 25px;
     margin-bottom: -5px;
     
 }
+
+.SpotDetail_name{
+ 
+    font-size: 25px;
+    overflow-wrap: break-word;
+}
+
+.SpotDetail_Address{
+    max-width: 830px;
+    overflow-wrap: break-word;
+    font-size: 25px;
+}
+
+.SpotDetail_Description{
+    max-width: 500px;
+    overflow-wrap: break-word;
+    font-size: 25px;
+}
+
+.SpotDetail_Price_Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+      font-size: 25px;
+      width: 840px;
+  }
 
 /* Create Spot *******************************************/
 
 .Create_spot_word{
     text-align: center;
     font-weight: bold;
-    padding-top: 0;
+    /* padding-top: 0; */
     padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.Create_spot_h1{
+    text-align: center;
+}
+
+.Create_spot_h2{
+    text-align: center;
 }
 
 .Create_Spot_Container{
    text-align: center;
+   font-size: 20px;
    
 }
 
@@ -143,58 +183,57 @@
 
 .Create_spot_City{
     margin: 5px;
-    margin-left: 30px;
+    margin-left: 35px;
 }
 
 .Create_spot_State{
     margin: 5px;
-    margin-left: 27px;
+    margin-left: 30px;
 }
 
 .Create_spot_Country{
     margin: 5px;
-    margin-right: 3px;
+    
 }
 
 .Create_spot_Lat{
     margin: 5px;
-    margin-left: 37px;
+    margin-left: 43px;
 }
 
 .Create_spot_Lng{
     margin: 5px;
-    margin-left: 33px;
+    margin-left: 38px;
 }
 
 .Create_spot_Name{
     margin: 5px;
-    margin-left: 20px;
+    margin-left: 23px;
 }
 
 .Create_spot_Description{
     margin: 5px;
-    margin-right: 33px;
+    margin-right: 38px;
 }
 
 .Create_spot_Price{
     margin: 5px;
-    margin-left: 24px;
+    margin-left: 30px;
 }
 
 .Create_spot_Image_Url{
     margin: 5px;
-    margin-right: 18px;
+    margin-right: 20px;
 }
 
 .Create_Spot_error{
     list-style-type: none;
-    
 }
 
 
 .Create_spot_button{
-    width: 13.6%;
-    margin-left: 57px;
+    width: 9.3%;
+    margin-left: 72px;
     background-color: rgb(232, 63, 92);
     color:white;
     border: 0;
@@ -208,4 +247,109 @@
 .Create_spot_button:hover{
     background-color:red
     /* transform: scale(1); */
+}
+
+
+
+/* SpotOwner *****************************************/
+
+.no_spot_found{
+    text-align: center;
+    font-size: 50px;
+}
+
+.SpotOwner_Container{
+   font-size: 25px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 50px;
+}
+
+.SpotOwner_Price{
+    font-weight: bold;
+}
+
+.SpotOwner_Price_and_Star{
+    display: flex;
+    justify-content: space-between;
+    width:800px;
+
+}
+
+.SpotOwner_img{
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    height: 700px;
+}
+
+.SpotOwner_Second_Container{
+   margin: 20px;
+   margin-left: 25px;
+   max-width: 800px;
+}
+
+.SpotOwner_Name{
+    margin: 10px 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.SpotOwner_Address{
+    margin: 10px 0px;
+    overflow-wrap: break-word;
+    
+}
+
+.SpotOwner_Description{
+    margin: 10px 0px;
+    overflow-wrap: break-word;
+}
+
+.SpotOwner_Link_Edit{
+    text-decoration: none;
+    margin-right: 10px;
+    border: 1px solid lightgray;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-top: 50px;
+    transition: all 1s ease;
+    color: red;
+}
+
+.SpotOwner_Link_Edit:hover{
+    background-color:beige;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+    color:blue
+   
+}
+
+.SpotOwner_Link_Edit:visited{
+    text-decoration: none; 
+}
+
+.SpotOwner_Delete_button{
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    font-size: 23px;
+    cursor: pointer;
+    background-color: white;
+    color: red;
+    transition: all 1s ease;
+}
+
+.SpotOwner_Delete_button:hover{
+    background-color:beige;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+    color:blue
+}
+
+.fa-location-dot{
+    font-size: 30px;
+    margin-left: 2px;
+}
+
+.fa-file-lines{
+    font-size: 30px;
+    margin-left: 2px;
 }

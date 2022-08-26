@@ -34,14 +34,15 @@ const SpotDetail = () => {
       </div>
 
       <div className='SpotDetail_Second_Container'>
-
-        <div className='SpotDetail_price'>{`$${spot.price}`}  / night</div>
-        <div><i className="fa-solid fa-star"></i> {spot.avgStarRating ? Number.parseFloat(spot.avgStarRating).toFixed(2) : 0} · {spot.numReviews} reviews</div>
+        <div className='SpotDetail_Price_Container'>
+          <div className='SpotDetail_price'>{`$${spot.price}`}  / night</div>
+          <div><i className="fa-solid fa-star"></i> {spot.avgStarRating ? Number.parseFloat(spot.avgStarRating).toFixed(2) : 0} · {spot.numReviews} reviews</div>
+        </div>
         {/* <div>{spot.numReviews} reviews</div> */}
-        <div>Hotel Name: {spot.name}</div>
-        <div>Hotel Address: {spot.address}, {spot.city}, {spot.state}, {spot.country} </div>
+        <div className='SpotDetail_name'>Hotel Name: {spot.name}</div>
+        <div className='SpotDetail_Address'>Hotel Address: {spot.address}, {spot.city}, {spot.state}, {spot.country} </div>
         {/* <div> </div> */}
-        <div>Description: {spot.description}</div>
+        <div className='SpotDetail_Description'>Description: {spot.description}</div>
         <div><ReviewsSpot /></div>
         <div><CreateReviewForm /></div>
 
@@ -61,11 +62,11 @@ const SpotDetail = () => {
             <div><i className="fa-solid fa-hot-tub-person"></i> Private hot tub</div>
             <div><i className="fa-solid fa-video"></i> Security cameras on property</div>
           </div>
-          </div>
+        </div>
 
         <div className='Things_to_know_words'>Things to know :</div>
         <div className='Things_to_know_container'>
-          
+
           <div className="House_rule_container">
             <div className='House_rule_words'>House rules :</div>
             <div><i className="fa-solid fa-clock"></i> Check-in: After 4:00 PM</div>

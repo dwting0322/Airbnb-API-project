@@ -494,7 +494,7 @@ router.post('/:spotId/reviews', reviewChecker, restoreUser, requireAuth, async (
     //     {userId: user.id}, {spotId: spotId }
     // ] } })
 
-    console.log('reviewConflict: ', reviewConflict.length)
+    // console.log('reviewConflict: ', reviewConflict.length)
 
     if(reviewConflict.length >= 1){
         res.statusCode = 403

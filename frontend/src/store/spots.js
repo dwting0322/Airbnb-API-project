@@ -140,7 +140,7 @@ export const createSpot = (payload) => async (dispatch) => {
 
 
   export const deleteSpot = (spotId) => async (dispatch) => {
-    console.log("spotId: ", spotId)
+    // console.log("spotId: ", spotId)
     const response = await csrfFetch(`/api/spots/${spotId}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -151,7 +151,7 @@ export const createSpot = (payload) => async (dispatch) => {
     if (response.ok) {
       const spot = await response.json();
       dispatch(goodbyeSpot(spotId));
-      console.log("Delete spot from thunk: ", spot)
+      // console.log("Delete spot from thunk: ", spot)
     }
   };
 

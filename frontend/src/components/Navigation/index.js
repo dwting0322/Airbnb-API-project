@@ -54,7 +54,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div>
+    <div className='Parent_navbar'>
       <ul className='Navbar_container'>
         <div className='Airbnb_logo'>
           <li>

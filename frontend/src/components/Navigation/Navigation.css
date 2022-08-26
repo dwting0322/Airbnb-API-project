@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+   
 }
 
 
@@ -11,14 +12,20 @@
    
 }
 
+.Parent_navbar{
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+}
 
 .Navbar_container{
     display: flex;
     justify-content: space-between;
     list-style: none;
-    /* background-color:rgb(247, 247, 236); */
     margin-left: 16px;
     margin-right: 10px;
+    padding:0px;
 }
 
 .fa-brands{
@@ -27,11 +34,13 @@
 }
 
 .username:hover{
-background-color: aliceblue;
+    background-color: aliceblue;
+    color: blue;
 }
 
 .email:hover{
     background-color: aliceblue;
+    color: blue;
     }
 
 .fa-at{
@@ -62,8 +71,8 @@ background-color: aliceblue;
 
 
 .Airbnb_logo{
-margin:10px 5px ;
-font-size: 30px;
+    margin:10px 5px ;
+    font-size: 30px;
 }
 
 
@@ -85,12 +94,12 @@ font-size: 30px;
     padding-top: 5px;
   
 }
-.Nav_become__host_link{
+/* .Nav_become__host_link{
   display: flex;
   margin:5px 10px ;
   text-decoration: 'none';
  
-}
+} */
 
 .Nav_become__host_link:hover{
     text-shadow: 3px 3px 3px rgb(171, 63, 63);  
@@ -100,12 +109,16 @@ font-size: 30px;
 
 
 .Nav_become__host_link{
+    display: flex;
+    margin:5px 10px ;
+    text-decoration: 'none';
+
     transition: all 1s ease;
     text-decoration: none;
     color: inherit;
-    font-size: 20px;
+    font-size: 27px;
     padding: 4px 10px;
-    border-radius: 15px;
+    border-radius: 20px;
     border: 1px solid white;
 }
 
@@ -162,6 +175,7 @@ font-size: 30px;
      margin-left: 2px;
      cursor:pointer;
      font-size: 18px;
+     border-radius: 20px;
 }
 
 
@@ -182,4 +196,23 @@ font-size: 30px;
 .fa-user-astronaut{
     font-size: 17px;
     margin-right: 10px;
+}
+
+.button{
+    border: none;
+    outline-style:hidden ;
+    background: none;
+     margin-bottom: 5px;
+     margin-right: 5px;
+     transition: all 0.5s ease;
+     margin-left: 2px;
+     cursor:pointer;
+     font-size: 18px;
+     border-radius: 20px;
+}
+
+button:hover{
+    box-shadow: 3px 3px 3px rgba(46, 42, 42, 0.3);
+    color: blue;
+    background-color: aliceblue;
 }

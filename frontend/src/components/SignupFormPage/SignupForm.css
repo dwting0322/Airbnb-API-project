@@ -1,10 +1,11 @@
 .Sign_up_container{
-    text-align: center
-   
+    text-align: center;
+    font-size: 25px;
 }
 
 .Sign_up_words{
-    text-align: center
+    text-align: center;
+    font-size: 30px;
 }
 
 .Firstname{
@@ -24,7 +25,7 @@
 }
 
 .Email_input{
-    margin-left: 26px;
+    margin-left: 41px;
 }
 
 .Username{
@@ -35,16 +36,17 @@
     margin-left: 1px;
 }
 .Signup_Password{
-    margin-left: 3px;
+    margin-left: 6px;
+
 }
 .Confirm_Password{
-    margin-right: 56px;
+    margin-right: 85px;
     margin-top: 5px;
 }
 
 .Signup_Button{
-    width: 13.6%;
-    margin-left: 70px;
+    width: 9.5%;
+    margin-left: 110px;
     margin-top: 5px;
     background-color: rgb(232, 63, 92);
     color:white;

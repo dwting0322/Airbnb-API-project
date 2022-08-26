@@ -26,18 +26,18 @@ const ReviewsUser = () => {
 
     return (
         <>
-        <h2>All my review: </h2>
+        <h1 className="review_user_h2">All my review: </h1>
   
             {user && reviews.length ? reviews.map(review => (
-                <div key={review.id}>
-                    <div><i className="fa-solid fa-star"></i> {review.stars} </div>
-                    <div >{review.review}</div>
+                <div key={review.id} className="review_container">
+                    <div className="ReviewUser_star"><i className="fa-solid fa-star"></i> {review.stars} </div>
+                    <div className="ReviewUser_review">{review.review}</div>
                     {console.log(review.id)}
-                    <button onClick={()=>dispatch(deleteReview(review.id))}>Delete</button>
+                    <button className="ReviewUser_button" onClick={()=>dispatch(deleteReview(review.id))}>Delete</button>
                 </div> 
 
            
-            )) : <h3>No any review found ! Please log in to see all your review!</h3>}
+            )) : <h2 className="ReviewUser_no_an_review_found">No any review found ! Please log in to see all your review!</h2>}
             
         </>
     );

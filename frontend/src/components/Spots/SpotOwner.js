@@ -21,38 +21,44 @@ const SpotOwner = () => {
 
     const user = useSelector(state => state.session.user)
     const filter = spots.filter(spot => spot?.ownerId === user?.id)
-    // console.log("user: ", user)
-
+    // console.log("filter: ", filter)
+    // console.log("spots: ", spots)
 
     useEffect(() => {
         dispatch(getOwnerSpots())
     }, [dispatch])
 
-    if(!user) {
+    if (!user) {
         alert("You need to log in first to manage your spot !")
         history.push("/")
     }
 
-    if (!spots) return null
-    return filter.length && (
+    // if (!filter) return alert("You need to log in first to manage your spot !")
+    return filter.length ? (
         <>
             {spots.map(spot =>
-                <div key={spot.id}>
-                    <NavLink to={`/spots/${spot.id}`}>
-                        <img src={spot.previewImage} alt="Vacation Property" />
-                    </NavLink>
-                    <div>{`$${spot.price}`}  night</div>
-                    <div><i className="fa-solid fa-star"></i> {spot.avgRating? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
-                    <div>{spot.name}</div>
-                    <div>{spot.address}</div>
-                    <div>{spot.city}, {spot.state}, {spot.country} </div>
-                    <div>Description: {spot.description}</div>
-                    <NavLink to={`/spots/${spot.id}/edit`}>Edit</NavLink>
-                    <button onClick={()=> dispatch(deleteSpot(spot.id))}>Delete</button>
+                <div className='SpotOwner_Container' key={spot.id}>
+                    <div>
+                        <NavLink to={`/spots/${spot.id}`}>
+                            <img className='SpotOwner_img' src={spot.previewImage} alt="Vacation Property" />
+                        </NavLink>
+                    </div>
+                    <div className='SpotOwner_Second_Container'>
+                        <div className='SpotOwner_Price_and_Star'>
+                            <div className='SpotOwner_Price'>{`$${spot.price}`} / night</div>
+                            <div><i className="fa-solid fa-star"></i> {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
+                        </div>
+                        <div className='SpotOwner_Name'><i className="fa-solid fa-house"></i>Hotel Name: {spot.name}</div>
+                        <div className='SpotOwner_Address'><i className="fa-solid fa-location-dot"></i> Hotel Address: {spot.address}, {spot.city}, {spot.state}, {spot.country}</div>
+                        {/* <div>{spot.city}, {spot.state}, {spot.country} </div> */}
+                        <div className='SpotOwner_Description'><i className="fa-solid fa-file-lines"></i> Description: {spot.description}</div>
+                        <NavLink className="SpotOwner_Link_Edit" to={`/spots/${spot.id}/edit`}><i className="fa-solid fa-pen-to-square"></i> Edit</NavLink>
+                        <button className='SpotOwner_Delete_button' onClick={() => dispatch(deleteSpot(spot.id))}> <i className="fa-solid fa-trash-can"></i> Delete</button>
+                    </div>
                 </div>
             )}
         </>
-    ) 
+    ) : <h1 className='no_spot_found'>You currently no any spot !!</h1>
 };
 
 export default SpotOwner;

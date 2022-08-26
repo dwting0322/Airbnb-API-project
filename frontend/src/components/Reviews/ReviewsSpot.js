@@ -27,18 +27,18 @@ const ReviewsSpot = () => {
     // if (!reviews) return null
 
     return (
-        <>
+        <div>
         <h3>All the spot review: </h3>
   
             {reviews.length ? reviews.map(review => (
-                <div key={review.id}>
+                <div key={review.id} >
                     <div><i className="fa-solid fa-star"></i> {review.stars} </div>
-                    <div >{review.review}</div>
+                    <div className="ReviewSpot_review" >{review.review}</div>
                 </div> 
 
            
             )) : <h4>no any review, want to be the first one?</h4>}
-        </>
+        </div>
     );
 };
 

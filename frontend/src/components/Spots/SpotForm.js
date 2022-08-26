@@ -132,9 +132,9 @@ const SpotForm = ({spot, formType}) => {
 
     return (
       <form onSubmit={handleSubmit} >
-        <h1 className='Create_spot_word'>{formType}:</h1>
-        <h2 className='Create_spot_word'>Find out what you</h2>
-        <h2 className='Create_spot_word'>could earn as a Host</h2>
+        <h1 className='Create_spot_h1'>{formType}:</h1>
+        <h2 className='Create_spot_h2'>Find out what you</h2>
+        <h2 className='Create_spot_h2'>could earn as a Host</h2>
       <div>
         <div className='Create_spot_word'>Hosts in your area earn an average of $3,800 / month</div>
         <div className='Create_spot_word'>They earn $152 / night</div>

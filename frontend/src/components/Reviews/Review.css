@@ -1,3 +1,54 @@
 textarea{
     vertical-align: top;
 }
+
+.ReviewSpot_review{
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
+    width: 440px ;
+    font-size: 20px;
+    overflow-wrap: break-word;
+}
+
+/* ReviewUser ************************/
+
+.review_container{
+    font-size: 25px;
+    overflow-wrap: break-word;
+    margin-left: 20px;
+    width:500px;
+    border-bottom: 1px solid lightgray;
+}
+
+.review_user_h2{
+    margin-left: 20px;
+}
+
+.ReviewUser_button{
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    font-size: 23px;
+    cursor: pointer;
+    background-color: white;
+    color: red;
+    transition: all 1s ease;
+}
+
+.ReviewUser_button:hover{
+    background-color:beige;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+
+.ReviewUser_star{
+    margin: 10px 0px;
+}
+
+.ReviewUser_review{
+    margin: 10px 0px;
+}
+
+.ReviewUser_no_an_review_found{
+    margin-left: 20px;
+}
