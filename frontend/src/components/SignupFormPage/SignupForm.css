@@ -8,6 +8,11 @@
     font-size: 30px;
 }
 
+input:focus {
+    background-color: rgb(253, 240, 224)
+  }
+
+
 .Firstname{
     margin: 5px;
 }
@@ -16,6 +21,7 @@
     border-radius: 15px;
     height: 20px;
 }
+
 
 .Lastname{
     margin: 5px;

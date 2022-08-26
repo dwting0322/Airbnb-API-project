@@ -57,6 +57,15 @@ const SpotOwner = () => {
                     </div>
                 </div>
             )}
+            <footer className='footer_container'>
+                <div>
+                    © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
+                </div>
+                <div>
+                    English(US)  $ USD
+                </div>
+            </footer>
+
         </>
     ) : <h1 className='no_spot_found'>You currently no any spot !!</h1>
 };

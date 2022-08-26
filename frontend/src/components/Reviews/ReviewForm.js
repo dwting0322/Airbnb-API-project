@@ -124,7 +124,7 @@ const ReviewForm = ({ myReview, formType }) => {
           </label>
           </p>
       
-      <input type="submit" value={formType} />
+      <input className='Create_a_review_button' type="submit" value={formType} />
 
     </form>
   );

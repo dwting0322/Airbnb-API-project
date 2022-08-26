@@ -172,13 +172,23 @@
 }
 
 .Create_Spot_Container{
-   text-align: center;
-   font-size: 20px;
-   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+input{
+    height: 20px;
+}
+
+textarea{
+    height: 40px;
+width: 172px;
+}
 .Create_spot_Address{
     margin: 5px;
+   
 }
 
 .Create_spot_City{
@@ -212,8 +222,19 @@
 }
 
 .Create_spot_Description{
-    margin: 5px;
-    margin-right: 38px;
+    margin-right: 27px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.upper_div{
+    margin-left: 50px;
+}
+
+.lower_div{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
 }
 
 .Create_spot_Price{
@@ -224,15 +245,23 @@
 .Create_spot_Image_Url{
     margin: 5px;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .Create_Spot_error{
     list-style-type: none;
 }
 
+.errors{
+   /* margin-left: 100px; */
+   
+   padding: 0;
+   margin-left: 200px;
+   color: red;
+}
 
 .Create_spot_button{
-    width: 9.3%;
+    width: 180px;
     margin-left: 72px;
     background-color: rgb(232, 63, 92);
     color:white;
@@ -248,6 +277,7 @@
     background-color:red
     /* transform: scale(1); */
 }
+
 
 
 
@@ -353,3 +383,25 @@
     font-size: 30px;
     margin-left: 2px;
 }
+
+.footer_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    border-top: 1px solid lightgray;
+    margin-top: 20px;
+}
+
+.footer_container_CreateForm{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    border-top: 1px solid lightgray;
+    margin-top: 20px;
+
+}
+
+textarea:focus {
+    background-color: rgb(253, 240, 224)
+  }
+
