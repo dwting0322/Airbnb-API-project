@@ -12,31 +12,47 @@
     margin: 5px;
 }
 
+.Firstname_Input{
+    border-radius: 15px;
+    height: 20px;
+}
+
 .Lastname{
     margin: 5px;
 }
 
 .Lastname_input{
     margin-left: 2px;
+    border-radius: 15px;
+    height: 20px;
 }
 
 .Email{
     margin: 5px;
+    margin-right: 5px;
 }
 
 .Email_input{
     margin-left: 41px;
+    border-radius: 15px;
+    height: 20px;
 }
 
 .Username{
     margin: 5px;
+   
 }
 
 .Username_input{
-    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 15px;
+    height: 20px;
 }
+
 .Signup_Password{
     margin-left: 6px;
+    border-radius: 15px;
+    height: 20px;
 
 }
 .Confirm_Password{
@@ -44,21 +60,31 @@
     margin-top: 5px;
 }
 
-.Signup_Button{
+.Confirm_Password_input{
+    border-radius: 15px;
+    height: 20px;
+}
+
+.Sign_up_Button{
     width: 9.5%;
     margin-left: 110px;
-    margin-top: 5px;
+    margin-top: 12px;
     background-color: rgb(232, 63, 92);
     color:white;
     border: 0;
     height: 23px;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 1s ease;
-
+    height: 28px;
 }
 
-.Signup_Button:hover{
-    background-color:red
-    /* transform: scale(1); */
+.Sign_up_Button:hover{
+    background-color:red;
+    color:white;
+}
+
+.Sign_up_errorlist{
+    list-style: none;
+    color:red
 }

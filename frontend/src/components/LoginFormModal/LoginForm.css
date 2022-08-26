@@ -36,10 +36,18 @@
 .login_login {
   margin-left: 60px;
   margin-bottom: 50px;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   margin-top: 10px;
- 
+  background-color: rgb(232, 63, 92);
+  transition: all 1s ease;
+  color:white;
+  padding: 3px 5px;
+}
+
+.login_login:hover{
+  background-color:red;
+  color:white;
 }
 
 .fa-rocket {

@@ -33,14 +33,21 @@
     font-weight: bold;
 }
 
+.email{
+   font-size: 23px; 
+}
+
+
 .username:hover{
     background-color: aliceblue;
     color: blue;
+    border-radius: 20px;
 }
 
 .email:hover{
     background-color: aliceblue;
     color: blue;
+    border-radius: 20px;
     }
 
 .fa-at{
@@ -112,7 +119,6 @@
     display: flex;
     margin:5px 10px ;
     text-decoration: 'none';
-
     transition: all 1s ease;
     text-decoration: none;
     color: inherit;
@@ -143,6 +149,8 @@
 .Nav_Link{
     text-decoration: none;
     color: inherit;
+    border-radius: 20px;
+    padding: 2px;
 }
 
 .Nav_Link:visited{
@@ -170,12 +178,14 @@
     outline-style:hidden ;
     background: none;
      margin-bottom: 5px;
-     margin-right: 5px;
+  font-family:'Times New Roman', Times, serif;
      transition: all 0.5s ease;
-     margin-left: 2px;
+     margin-left: 4px;
      cursor:pointer;
      font-size: 18px;
      border-radius: 20px;
+     margin-top: -2px;
+    
 }
 
 
