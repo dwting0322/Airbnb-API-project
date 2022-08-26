@@ -9,12 +9,13 @@
 
   border-radius: 10px;
   margin: 100px auto;
+
 }
 
 .Username_Email {
   display: flex;
   line-height:30px;
-  margin-left: 60px;
+  margin-left: 70px;
   margin-right: 60px;
 }
 
@@ -28,13 +29,13 @@
 
 .Password {
   margin: 5px;
-  margin-left: 60px;
+  margin-left: 70px;
   display: flex;
   line-height:30px;
 }
 
 .login_login {
-  margin-left: 60px;
+  margin-left: 70px;
   margin-bottom: 50px;
   border-radius: 20px;
   cursor: pointer;

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import DemoUser from '../DemoUser/demo-user';
+
 
 
 function Navigation({ isLoaded }) {
@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
       {/* <ul>
         <li><LoginFormModal /></li>
         <li><button onClick={handleSubmit} type="submit">Sign Up</button></li>
-        <li><DemoUser /></li>
+     
       </ul>   */}
         <ProfileButton user={sessionUser} setShowModal={setShowModal} showModal={showModal}/>
         <LoginFormModal setShowModal={setShowModal} showModal={showModal}/>
@@ -57,8 +57,8 @@ function Navigation({ isLoaded }) {
     <div className='Parent_navbar'>
       <ul className='Navbar_container'>
         <div className='Airbnb_logo'>
-          <li>
-            <NavLink to={'/'}><i className="fa-brands fa-airbnb">WonderlandBnB</i> </NavLink>
+          <li >
+            <NavLink className='home_link' to={'/'}><i className="fa-brands fa-fort-awesome"></i> WonderlandBnB</NavLink>
           </li>
         </div>
 

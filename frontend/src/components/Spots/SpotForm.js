@@ -134,13 +134,38 @@ const SpotForm = ({ spot, formType }) => {
   return (
     <>
       <form onSubmit={handleSubmit} >
-        <h1 className='Create_spot_h1'>{formType}:</h1>
-        <h2 className='Create_spot_h2'>Find out what you</h2>
-        <h2 className='Create_spot_h2'>could earn as a Host</h2>
-        <div>
-          <div className='Create_spot_word'>Hosts in your area earn an average of $3,800 / month</div>
-          <div className='Create_spot_word'>They earn $152 / night</div>
-          <div className='Create_spot_word'>They're booked 25 nights / month</div>
+        {/* <h1 className='Create_spot_h1'>{formType}:</h1> */}
+        <h2 className='Create_spot_h2'>Find out what you could</h2>
+        <h2 className='Create_spot_h2'>earn as a Host</h2>
+
+        <div className='Create_spot_word_Container'>
+
+          <div className='Create_spot_word'>
+            <div className='Create_spot_word1'> Hosts in your area earn an average of</div>
+            <div className='Create_spot_word2'>
+              <span className='span1'>$3,800 </span>
+              <span className='span2'> / month</span>
+            </div>
+          </div>
+
+          <div className='Create_spot_word'>
+            <div className='they_earn_word'>They earn</div>
+            <div className='Create_spot_span_container'>
+              <span className='span3'>$152 </span>
+              <span className='span4'> / night</span>
+            </div>
+          </div>
+
+          <div className='Create_spot_word'>
+            <div className='they_earn_word'> They're booked</div>
+            <div className='Create_spot_span_container'>
+              <span className='span3'>25 </span>
+              <span className='span4'> nights / month</span>
+            </div>
+
+          </div>
+
+
         </div>
 
         <div className='Create_Spot_Container'>
@@ -153,11 +178,12 @@ const SpotForm = ({ spot, formType }) => {
               ))}
             </ul>
           </div>
+          <div className='tell_us_words'>Tell us about your place</div>
           <div className='lower_div'>
             <div className="Create_spot_Address">
               <label>
                 Address:
-                <input
+                <input className='SpotForm_address'
                   type="text"
                   placeholder="address..."
                   value={address}
@@ -169,7 +195,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_City">
               <label>
                 City:
-                <input
+                <input className="Create_spot_City_input"
                   type="text"
                   placeholder="city..."
                   value={city}
@@ -181,7 +207,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_State">
               <label>
                 State:
-                <input
+                <input className="Create_spot_State_input"
                   type="text"
                   placeholder="state..."
                   value={state}
@@ -193,7 +219,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Country">
               <label>
                 Country:
-                <input
+                <input className="Create_spot_Country_input"
                   type="text"
                   placeholder="country..."
                   value={country}
@@ -205,7 +231,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Lat">
               <label>
                 Lat:
-                <input
+                <input className="Create_spot_Lat_input"
                   type="number"
                   placeholder="latitude..."
                   value={lat}
@@ -217,7 +243,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Lng">
               <label>
                 Lng:
-                <input
+                <input className="Create_spot_Lng_input"
                   type="number"
                   placeholder="longitude..."
                   value={lng}
@@ -229,7 +255,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Name">
               <label>
                 Name:
-                <input
+                <input className="Create_spot_Name_input"
                   type="text"
                   placeholder="property name..."
                   value={name}
@@ -241,7 +267,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Description">
               <label>
                 Description:
-                <textarea
+                <textarea className='Create_spot_textarea'
                   type="text"
                   placeholder="description..."
                   value={description}
@@ -253,7 +279,7 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Price">
               <label>
                 Price:
-                <input
+                <input className='price_createSpot'
                   type="number"
                   placeholder="price..."
                   value={price}
@@ -265,9 +291,9 @@ const SpotForm = ({ spot, formType }) => {
             <div className="Create_spot_Image_Url">
               <label>
                 Image Url:
-                <input
+                <input className='Imageurl'
                   type='url'
-                  placeholder="please upload the property's url..."
+                  placeholder="please upload the url..."
                   value={previewImage}
                   onChange={e => setPreviewImage(e.target.value)}
                 />
@@ -275,7 +301,7 @@ const SpotForm = ({ spot, formType }) => {
             </div>
 
             <input className="Create_spot_button" type="submit" value={formType} />
-          
+
           </div>
         </div>
       </form>
@@ -284,10 +310,9 @@ const SpotForm = ({ spot, formType }) => {
           © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
         </div>
         <div>
-          English(US)  $ USD
+          <i className="fa-solid fa-globe"></i> English(US)  $ USD
         </div>
       </footer>
-      
     </>
   );
 }

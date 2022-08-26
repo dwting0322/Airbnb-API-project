@@ -45,10 +45,10 @@ const ReviewsUser = () => {
             </div>
             <footer className='footer_container'>
                 <div>
-                <i class="fa-brands fa-airbnb"></i> © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
+                <i className="fa-brands fa-fort-awesome"></i> © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
                 </div>
                 <div>
-                    English(US)  $ USD
+                <i className="fa-solid fa-globe"></i> English(US) $ USD
                 </div>
             </footer>
         </>

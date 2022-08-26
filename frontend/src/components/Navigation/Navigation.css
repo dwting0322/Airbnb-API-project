@@ -24,7 +24,7 @@
     justify-content: space-between;
     list-style: none;
     margin-left: 16px;
-    margin-right: 10px;
+    margin-right: 50px;
     padding:0px;
 }
 
@@ -77,43 +77,33 @@
 }
 
 
-.Airbnb_logo{
+.Airbnb_logo {
     margin:10px 5px ;
     font-size: 30px;
+    transition: all 1s ease;
+    margin-top: 20px;
 }
 
 
-.Airbnb_logo:hover{
+.Airbnb_logo:hover {
     text-shadow: 5px 5px 3px rgb(220, 13, 13);
 }
 
 
-.Airbnb_logo{
+/* .Airbnb_logo {
     transition: all 1s ease;
-}
+} */
 
 
 .Nav_become__host_and_Home_link{
     display: flex;
-    margin:5px 10px ;
+    margin:10px 10px ;
     text-decoration: none;
     font-size: 20px;
     padding-top: 5px;
   
+  
 }
-/* .Nav_become__host_link{
-  display: flex;
-  margin:5px 10px ;
-  text-decoration: 'none';
- 
-} */
-
-.Nav_become__host_link:hover{
-    text-shadow: 3px 3px 3px rgb(171, 63, 63);  
-    text-decoration: none;
-    background-color: rgb(215, 211, 211);
-}
-
 
 .Nav_become__host_link{
     display: flex;
@@ -122,11 +112,25 @@
     transition: all 1s ease;
     text-decoration: none;
     color: inherit;
-    font-size: 27px;
+    font-size: 25px;
     padding: 4px 10px;
-    border-radius: 20px;
+    border-radius: 25px;
     border: 1px solid white;
+
 }
+
+.Nav_become__host_link:hover{
+    /* text-shadow: 3px 3px 3px rgb(171, 63, 63);   */
+    text-decoration: none;
+    background-color: rgb(215, 211, 211);
+   
+}
+.home_link{
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+
 
 
 .Nav_Home_button{
@@ -166,7 +170,7 @@
 .profile_button{
     margin-top: 5px;
     border: 2px solid rgb(224, 220, 220);
-    border-radius: 20px;
+    border-radius: 25px;
     padding: 6px 12px;
     /* background-color: white; */
     cursor: pointer;
@@ -178,7 +182,6 @@
     outline-style:hidden ;
     background: none;
      margin-bottom: 5px;
-  font-family:'Times New Roman', Times, serif;
      transition: all 0.5s ease;
      margin-left: 4px;
      cursor:pointer;
@@ -222,7 +225,8 @@
 }
 
 button:hover{
-    box-shadow: 3px 3px 3px rgba(46, 42, 42, 0.3);
+    box-shadow: 3px 3px 3px rgba(46, 42, 42, 0.5);
     color: blue;
     background-color: aliceblue;
+    transition: all 0.5s ease;
 }

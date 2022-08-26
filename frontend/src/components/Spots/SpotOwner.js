@@ -62,12 +62,23 @@ const SpotOwner = () => {
                     © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
                 </div>
                 <div>
-                    English(US)  $ USD
+                    <i className="fa-solid fa-globe"></i> English(US)  $ USD
                 </div>
             </footer>
 
         </>
-    ) : <h1 className='no_spot_found'>You currently no any spot !!</h1>
+    ) :
+        <>
+            <h1 className='no_spot_found'>You currently have no any spot to host !</h1>
+            <footer className='footer_container'>
+                <div>
+                    © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
+                </div>
+                <div>
+                    <i className="fa-solid fa-globe"></i> English(US)  $ USD
+                </div>
+            </footer>
+        </>
 };
 
 export default SpotOwner;

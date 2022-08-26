@@ -5,7 +5,7 @@
     margin-left: 10px;
     border-radius: 12px;
     margin-top: 30px;
-    
+
 }
 
 
@@ -18,7 +18,7 @@
     max-width: 350px;
     margin-right: 10px;
     margin-left: 10px;
-    
+
 }
 
 .getAllSpot-avgRating {
@@ -36,12 +36,30 @@
     margin: 5px 10px;
 }
 
+.getAllSpot_city_state {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.price_container {
+    display: flex;
+}
+
+.night {
+    margin-left: 5px;
+}
+
+.getAllSpot_price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .test {
     /* margin-top: 30px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-   
+
 }
 
 /* .image_container {
@@ -77,12 +95,12 @@
 }
 
 .SpotDetail_Second_Container {
-    margin-left: 200px;
+    margin-left: 270px;
     margin-top: 15px;
     font-size: 25px;
 }
 
-.SpotDetail_price{
+.SpotDetail_price {
     font-weight: bold;
 }
 
@@ -119,163 +137,313 @@
     font-weight: bold;
 }
 
-.What_this_place_offers{
+.What_this_place_offers {
     margin-top: 20px;
     font-weight: bold;
     font-size: 25px;
     margin-bottom: -5px;
-    
+
 }
 
-.SpotDetail_name{
- 
+.SpotDetail_name {
+
     font-size: 25px;
     overflow-wrap: break-word;
 }
 
-.SpotDetail_Address{
+.SpotDetail_Address {
     max-width: 830px;
     overflow-wrap: break-word;
     font-size: 25px;
 }
 
-.SpotDetail_Description{
+.SpotDetail_Description {
     max-width: 500px;
     overflow-wrap: break-word;
     font-size: 25px;
 }
 
-.SpotDetail_Price_Container{
+.SpotDetail_Price_Container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-      font-size: 25px;
-      width: 840px;
-  }
+    font-size: 25px;
+    width: 840px;
+}
+
+.footer_SpotDetail_container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    border-top: 1px solid lightgray;
+    margin-top: 20px;
+
+}
+
+.footer1 {
+    margin-right: 310px;
+}
+
+.footer2 {
+    margin-right: 10px
+}
+
 
 /* Create Spot *******************************************/
+.Create_spot_word_Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
-.Create_spot_word{
-    text-align: center;
-    font-weight: bold;
-    /* padding-top: 0; */
-    padding-bottom: 5px;
+.Create_spot_word {
+    /* text-align: center; */
+    border: 1px solid rgb(247, 247, 247);
+    padding: 16px;
+    margin-bottom: 12px;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    margin-top: 20px;
+    background-color: rgb(247, 247, 247);
+    border-radius: 12px;
+    margin-right: 20px;
 }
 
-.Create_spot_h1{
+.Create_spot_word1 {
+    background-color: rgb(247, 247, 247);
+    font-size: 15px;
+    color: grey;
+}
+
+.Create_spot_word2 {
+    background-color: rgb(247, 247, 247);
+}
+
+.span1 {
+
+    font-weight: bold;
+    font-size: 30px;
+    color: red;
+    background-color: rgb(247, 247, 247);
+}
+
+.span2 {
+    font-weight: bold;
+    color: red;
+    background-color: rgb(247, 247, 247);
+}
+
+.they_earn_word{
+    background-color: rgb(247, 247, 247);
+    font-size: 15px;
+    color: grey;
+    margin-bottom: 4px;
+}
+
+.span3 {
+font-size: 27px;
+   font-weight: bold;
+   
+    background-color: rgb(247, 247, 247);
+}
+
+.span4 {
+    font-weight: bold;
+   
+    background-color: rgb(247, 247, 247);
+}
+
+.Create_spot_span_container{
+    background-color: rgb(247, 247, 247);
+
+}
+
+
+.Create_spot_h1 {
     text-align: center;
 }
 
-.Create_spot_h2{
+.Create_spot_h2 {
     text-align: center;
+    font-size: 50px;
+    color: black;
 }
 
-.Create_Spot_Container{
+.Create_Spot_Container {
     font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input{
-    height: 20px;
+input {
+    border: 1px solid gray;
 }
 
-textarea{
+textarea {
     height: 40px;
-width: 172px;
-}
-.Create_spot_Address{
-    margin: 5px;
-   
 }
 
-.Create_spot_City{
-    margin: 5px;
-    margin-left: 35px;
+.tell_us_words{
+    margin: 30px;
+    font-weight: bold;
 }
 
-.Create_spot_State{
+.Create_spot_Address {
     margin: 5px;
-    margin-left: 30px;
+
 }
 
-.Create_spot_Country{
-    margin: 5px;
-    
+.SpotForm_address {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
 }
 
-.Create_spot_Lat{
+.Create_spot_City {
+    margin: 5px;
+    margin-left: 42px;
+}
+
+
+.Create_spot_City_input {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_spot_State {
+    margin: 5px;
+    margin-left: 31px;
+}
+
+.Create_spot_State_input {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_spot_Country {
+    margin: 5px;
+}
+
+.Create_spot_Country_input {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_spot_Lat {
+    margin: 5px;
+    margin-left: 49px;
+}
+
+.Create_spot_Lat_input {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_spot_Lng {
     margin: 5px;
     margin-left: 43px;
 }
 
-.Create_spot_Lng{
-    margin: 5px;
-    margin-left: 38px;
+.Create_spot_Lng_input {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
 }
 
-.Create_spot_Name{
+.Create_spot_Name {
     margin: 5px;
     margin-left: 23px;
 }
 
-.Create_spot_Description{
-    margin-right: 27px;
-    margin-top: 5px;
+.Create_spot_Name_input {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_spot_Description {
+    margin-right: 28px;
+    margin-top: 10px;
     margin-bottom: 5px;
 }
 
-.upper_div{
+.Create_spot_textarea {
+    width: 180px;
+    border-radius: 5px;
+}
+
+.upper_div {
     margin-left: 50px;
 }
 
-.lower_div{
+.lower_div {
     display: flex;
     flex-direction: column;
-   align-items: center;
+    align-items: center;
 }
 
-.Create_spot_Price{
+.Create_spot_Price {
     margin: 5px;
-    margin-left: 30px;
+    margin-left: 32px;
 }
 
-.Create_spot_Image_Url{
+.price_createSpot {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_spot_Image_Url {
     margin: 5px;
-    margin-right: 20px;
+    margin-right: 23px;
     margin-bottom: 10px;
 }
 
-.Create_Spot_error{
+.Imageurl {
+    width: 180px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.Create_Spot_error {
     list-style-type: none;
 }
 
-.errors{
-   /* margin-left: 100px; */
-   
-   padding: 0;
-   margin-left: 200px;
-   color: red;
+
+
+.errors {
+    /* margin-left: 100px; */
+
+    padding: 0;
+    margin-left: 200px;
+    color: red;
 }
 
-.Create_spot_button{
+.Create_spot_button {
     width: 180px;
     margin-left: 72px;
     background-color: rgb(232, 63, 92);
-    color:white;
+    color: white;
     border: 0;
     height: 23px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 1s ease;
+    font-size: 16px;
 
 }
 
-.Create_spot_button:hover{
-    background-color:red
-    /* transform: scale(1); */
+.Create_spot_button:hover {
+    background-color: red
+        /* transform: scale(1); */
 }
 
 
@@ -283,60 +451,62 @@ width: 172px;
 
 /* SpotOwner *****************************************/
 
-.no_spot_found{
+.no_spot_found {
     text-align: center;
     font-size: 50px;
+    margin-top: 50px;
+    margin-bottom: 642px;
 }
 
-.SpotOwner_Container{
-   font-size: 25px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-top: 50px;
+.SpotOwner_Container {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
 }
 
-.SpotOwner_Price{
+.SpotOwner_Price {
     font-weight: bold;
 }
 
-.SpotOwner_Price_and_Star{
+.SpotOwner_Price_and_Star {
     display: flex;
     justify-content: space-between;
-    width:800px;
+    width: 800px;
 
 }
 
-.SpotOwner_img{
+.SpotOwner_img {
     display: flex;
     justify-content: center;
     width: 800px;
     height: 700px;
 }
 
-.SpotOwner_Second_Container{
-   margin: 20px;
-   margin-left: 25px;
-   max-width: 800px;
+.SpotOwner_Second_Container {
+    margin: 20px;
+    margin-left: 25px;
+    max-width: 800px;
 }
 
-.SpotOwner_Name{
+.SpotOwner_Name {
     margin: 10px 0px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.SpotOwner_Address{
+.SpotOwner_Address {
     margin: 10px 0px;
     overflow-wrap: break-word;
-    
+
 }
 
-.SpotOwner_Description{
+.SpotOwner_Description {
     margin: 10px 0px;
     overflow-wrap: break-word;
 }
 
-.SpotOwner_Link_Edit{
+.SpotOwner_Link_Edit {
     text-decoration: none;
     margin-right: 10px;
     border: 1px solid lightgray;
@@ -345,46 +515,47 @@ width: 172px;
     margin-top: 50px;
     transition: all 1s ease;
     color: red;
+    font-size: 25px;
 }
 
-.SpotOwner_Link_Edit:hover{
-    background-color:beige;
+.SpotOwner_Link_Edit:hover {
+    background-color: beige;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
-    color:blue
-   
+    color: blue
 }
 
-.SpotOwner_Link_Edit:visited{
-    text-decoration: none; 
+.SpotOwner_Link_Edit:visited {
+    text-decoration: none;
 }
 
-.SpotOwner_Delete_button{
+.SpotOwner_Delete_button {
     border: 1px solid lightgray;
     border-radius: 20px;
-    font-size: 23px;
+    font-size: 25px;
     cursor: pointer;
     background-color: white;
     color: red;
     transition: all 1s ease;
+    margin-top:-2px ;
 }
 
-.SpotOwner_Delete_button:hover{
-    background-color:beige;
+.SpotOwner_Delete_button:hover {
+    background-color: beige;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
-    color:blue
+    color: blue
 }
 
-.fa-location-dot{
+.fa-location-dot {
     font-size: 30px;
     margin-left: 2px;
 }
 
-.fa-file-lines{
+.fa-file-lines {
     font-size: 30px;
     margin-left: 2px;
 }
 
-.footer_container{
+.footer_container {
     display: flex;
     justify-content: space-between;
     padding: 30px;
@@ -392,7 +563,7 @@ width: 172px;
     margin-top: 20px;
 }
 
-.footer_container_CreateForm{
+.footer_container_CreateForm {
     display: flex;
     justify-content: space-between;
     padding: 30px;
@@ -403,5 +574,4 @@ width: 172px;
 
 textarea:focus {
     background-color: rgb(253, 240, 224)
-  }
-
+}

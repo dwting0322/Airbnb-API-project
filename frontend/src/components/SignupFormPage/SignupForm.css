@@ -1,11 +1,13 @@
 .Sign_up_container{
     text-align: center;
     font-size: 25px;
+    margin-top: 30px;
 }
 
 .Sign_up_words{
     text-align: center;
     font-size: 30px;
+    margin-top: 30px;
 }
 
 input:focus {
@@ -19,7 +21,8 @@ input:focus {
 
 .Firstname_Input{
     border-radius: 15px;
-    height: 20px;
+    height: 25px;
+    width: 180px;
 }
 
 
@@ -30,18 +33,20 @@ input:focus {
 .Lastname_input{
     margin-left: 2px;
     border-radius: 15px;
-    height: 20px;
+    height: 25px;
+    width: 180px;
 }
 
 .Email{
     margin: 5px;
-    margin-right: 5px;
+    margin-right: 7px;
 }
 
 .Email_input{
-    margin-left: 41px;
+    margin-left: 50px;
     border-radius: 15px;
-    height: 20px;
+    height: 25px;
+    width: 180px;
 }
 
 .Username{
@@ -52,27 +57,30 @@ input:focus {
 .Username_input{
     margin-right: 1px;
     border-radius: 15px;
-    height: 20px;
+    height: 25px;
+    width: 180px;
 }
 
-.Signup_Password{
+.Signup_Password_input{
     margin-left: 6px;
     border-radius: 15px;
-    height: 20px;
+    height: 25px;
+    width: 180px;
 
 }
 .Confirm_Password{
-    margin-right: 85px;
+    margin-right: 88px;
     margin-top: 5px;
 }
 
 .Confirm_Password_input{
     border-radius: 15px;
-    height: 20px;
+    height: 25px;
+    width: 180px;
 }
 
 .Sign_up_Button{
-    width: 9.5%;
+    width: 180px;
     margin-left: 110px;
     margin-top: 12px;
     background-color: rgb(232, 63, 92);
@@ -83,6 +91,7 @@ input:focus {
     cursor: pointer;
     transition: all 1s ease;
     height: 28px;
+    font-size: 16px;
 }
 
 .Sign_up_Button:hover{

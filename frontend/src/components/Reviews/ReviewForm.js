@@ -95,10 +95,10 @@ const ReviewForm = ({ myReview, formType }) => {
     <form onSubmit={handleSubmit} >
       <h2>{formType}:</h2>
 
-      <ul className="errors">
+      <ul className="errors_ul">
         {hasSubmitted && validationErrors.map(error => (
-          <li key={error}>
-            {error}
+          <li className='Review_errorsList' key={error}>
+            <i className="fa-solid fa-ban"></i> {error}
           </li>
         ))}
       </ul>
@@ -106,7 +106,7 @@ const ReviewForm = ({ myReview, formType }) => {
         {/* <div className='Review_Star'> */}
           <label>
             Starts:
-            <input
+            <input className='star_ReviewForm'
               type="number"
               value={stars}
               onChange={e => setStars(e.target.value)}
@@ -117,14 +117,14 @@ const ReviewForm = ({ myReview, formType }) => {
           <label>
             Review:
         
-            <textarea
+            <textarea className='Review_ReviewForm'
               value={review}
               onChange={e => setReview(e.target.value)}
             />
           </label>
           </p>
       
-      <input className='Create_a_review_button' type="submit" value={formType} />
+      <input className='Create_a_review_button' type="submit" value={formType}  />
 
     </form>
   );

@@ -23,9 +23,6 @@ function SignupFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (!email.includes("@"))
-    // return setErrors(['The email must have @, please enter a valid email'])
-
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({firstName, lastName, email, username, password }))
@@ -93,7 +90,7 @@ function SignupFormPage() {
         <div>
         <label>
             Password:
-            <input className="Signup_Password"
+            <input className="Signup_Password_input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

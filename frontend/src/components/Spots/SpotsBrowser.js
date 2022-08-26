@@ -41,9 +41,11 @@ const SpotsBrowser = () => {
 
                         <div className='getAllSpot_Second_Container'>
                             <div>
-                                <div className='getAllSpot-name'>{spot.name}</div>
-                                <div className='getAllSpot-city_state'>{spot.city}, {spot.state} </div>
-                                <div className='getAllSpot-price'>{`$${spot.price}`}  night</div>
+                                {/* <div className='getAllSpot-name'>{spot.name}</div> */}
+                                <div className='getAllSpot_city_state'>{spot.city}, {spot.state} </div>
+                                <div className="price_container">
+                                <div className='getAllSpot_price'>{`$${spot.price}`} </div> <div className="night" > night</div>
+                                </div>
                             </div>
                             <div className='getAllSpot-avgRating'>
                                 <i className="fa-solid fa-star"></i>
@@ -61,7 +63,7 @@ const SpotsBrowser = () => {
                     © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
                 </div>
                 <div>
-                    English(US)   $ USD
+                <i className="fa-solid fa-globe"></i> English(US)   $ USD
                 </div>
             </footer>
         </>

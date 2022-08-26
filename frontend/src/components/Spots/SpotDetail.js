@@ -28,6 +28,7 @@ const SpotDetail = () => {
   if (!spot) return null
 
   return (
+    <>
     <div className='SpotDetail_Container'>
       <div className='SpotDetail_img_Container'>
         <img className='SpotDetail_img' src={spot.previewImage} alt="Vacation Property" />
@@ -95,7 +96,15 @@ const SpotDetail = () => {
         </div>
       </div>
     </div>
-
+    <footer className='footer_SpotDetail_container'>
+        <div className='footer1'>
+          © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
+        </div>
+        <div className='footer2'>
+        <i className="fa-solid fa-globe"></i> English(US) $ USD
+        </div>
+      </footer>
+    </>
   )
 
 };

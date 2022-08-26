@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
-import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import {login} from "../../store/session";
+import { login } from "../../store/session";
 
 
 
@@ -14,12 +13,12 @@ function ProfileButton({ user, setShowModal }) {
   const history = useHistory();
 
   const [showMenu, setShowMenu] = useState(false);
- 
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push("/signup")
-    
+
   };
 
 
@@ -46,7 +45,7 @@ function ProfileButton({ user, setShowModal }) {
     dispatch(sessionActions.logout());
   };
 
- 
+
 
   return (
     <>
@@ -54,7 +53,7 @@ function ProfileButton({ user, setShowModal }) {
       <div className="profile_button" onClick={openMenu}>
         <i className="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
       </div>
-      { user ? showMenu && (
+      {user ? showMenu && (
 
         <ul className="profile-dropdown">
 
@@ -74,18 +73,17 @@ function ProfileButton({ user, setShowModal }) {
           </li>
         </ul>
 
-      ) 
-      :  showMenu && (
-        <ul>
-          <div>
-          <li className="list"><i className="fa-solid fa-user"></i><button className="button" onClick={() => setShowModal(true)}>Log In</button></li>
-            {/* <li><NavLink to="/signup">Sign Up</NavLink></li> */}
-            <li className="list"><i className="fa-solid fa-user-plus"></i><button className="button" onClick={handleSubmit}>Sign Up</button></li>
-            <li className="list"><i className="fa-solid fa-user-astronaut"></i><button className="button" onClick = { () =>  dispatch(login({ credential:"Demo-lition", password:"password", }))}>Demo User</button></li>
-          </div>
-        </ul>
-     
       )
+        : showMenu && (
+          <ul>
+            <div>
+              <li className="list"><i className="fa-solid fa-user"></i><button className="button" onClick={() => setShowModal(true)}>Log In</button></li>
+              {/* <li><NavLink to="/signup">Sign Up</NavLink></li> */}
+              <li className="list"><i className="fa-solid fa-user-plus"></i><button className="button" onClick={handleSubmit}>Sign Up</button></li>
+              <li className="list"><i className="fa-solid fa-user-astronaut"></i><button className="button" onClick={() => dispatch(login({ credential: "Demo-lition", password: "password", }))}>Demo User</button></li>
+            </div>
+          </ul>
+        )
       }
     </>
   );
