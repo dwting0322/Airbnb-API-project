@@ -22,9 +22,13 @@ function LoginForm() {
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
+        // console.log("data.errors", data)
         if (data && data.errors) {
-          if (!user) return alert("Please enter a valid Username/Email or Password")
-          setErrors(data.errors);
+
+          const err = Object.values(data.errors)
+          // console.log("err", err)
+          if (err) setErrors(err);
+          // if (!user)  alert("Please enter a valid Username/Email or Password")
         }
       }
     );
@@ -38,16 +42,19 @@ function LoginForm() {
         <i className="fa-brands fa-airbnb">WonderlandBnB</i>
       </div>
 
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
+      <div className="login_error_container">
+        <ul>
+          {errors.map((error, idx) => (
+            <li className="login_errorlist" key={idx}>{error.message}</li>
+          ))}
+        </ul>
+      </div>
+
       <div className="Login_Container">
         <div className="Username_Email">
           <label>
             Username or Email:
-            <input className="input"
+            <input className="input_1"
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
@@ -58,7 +65,7 @@ function LoginForm() {
         <div className="Password">
           <label>
             Password:
-            <input className="input"
+            <input className="input_1"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

@@ -531,7 +531,7 @@ textarea {
 .SpotOwner_Delete_button {
     border: 1px solid lightgray;
     border-radius: 20px;
-    font-size: 25px;
+    font-size: 24px;
     cursor: pointer;
     background-color: white;
     color: red;
@@ -561,6 +561,11 @@ textarea {
     padding: 30px;
     border-top: 1px solid lightgray;
     margin-top: 20px;
+    
+}
+
+.USD{
+    margin-top: 13px;
 }
 
 .footer_container_CreateForm {

@@ -47,7 +47,7 @@ const ReviewsUser = () => {
                 <div>
                 <i className="fa-brands fa-fort-awesome"></i> © 2022 WonderlandBnB, Inc. · Privacy · Terms · Sitemap
                 </div>
-                <div>
+                <div className="USD">
                 <i className="fa-solid fa-globe"></i> English(US) $ USD
                 </div>
             </footer>

@@ -1,37 +1,46 @@
-#modal-content{
+#modal-content {
   box-shadow: 5px 5px 5px rgba(247, 245, 245, 0.6);
   border-radius: 10px;
 }
 
-.Login_Container{
-  width:300px;
+.Login_Container {
+  width: 300px;
   height: 200px;
-
   border-radius: 10px;
   margin: 100px auto;
+
 
 }
 
 .Username_Email {
   display: flex;
-  line-height:30px;
+  line-height: 30px;
   margin-left: 70px;
   margin-right: 60px;
+  margin-top: -50px;
+  font-size: 17px;
 }
 
 .input:focus {
   background-color: rgb(253, 240, 224)
 }
 
-.input{
+.input {
   border-radius: 15px;
+}
+
+.input_1{
+  border-radius: 15px;
+  height: 25px;
+  font-size: 15px;
 }
 
 .Password {
   margin: 5px;
   margin-left: 70px;
   display: flex;
-  line-height:30px;
+  line-height: 30px;
+  font-size: 17px;
 }
 
 .login_login {
@@ -42,13 +51,13 @@
   margin-top: 10px;
   background-color: rgb(232, 63, 92);
   transition: all 1s ease;
-  color:white;
+  color: white;
   padding: 3px 5px;
 }
 
-.login_login:hover{
-  background-color:red;
-  color:white;
+.login_login:hover {
+  background-color: red;
+  color: white;
 }
 
 .fa-rocket {
@@ -67,8 +76,6 @@
   margin-left: 20px;
   color: red;
   transition: all 1s ease;
-
-
 }
 
 
@@ -76,4 +83,17 @@
   transform: scale(1.1, 1.1);
   text-shadow: 5px 3px 3px rgba(34, 13, 220, 0.5);
 
+}
+
+.login_errorlist {
+  list-style: none;
+  color: red;
+  margin-top: 30px;
+  margin-right: 43px;
+  font-size: 20px;
+}
+
+.login_error_container {
+  display: flex;
+  justify-content: center;
 }

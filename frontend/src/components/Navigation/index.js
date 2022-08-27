@@ -57,8 +57,8 @@ function Navigation({ isLoaded }) {
     <div className='Parent_navbar'>
       <ul className='Navbar_container'>
         <div className='Airbnb_logo'>
-          <li >
-            <NavLink className='home_link' to={'/'}><i className="fa-brands fa-fort-awesome"></i> WonderlandBnB</NavLink>
+          <li className='li'>
+          <i className="fa-brands fa-fort-awesome"></i> <NavLink className='home_link' to={'/'}> WonderlandBnB</NavLink>
           </li>
         </div>
 

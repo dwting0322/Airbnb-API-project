@@ -52,7 +52,7 @@ export const getUserReview = () => async (dispatch) => {
 
     if (response.ok) {
         const reviews = await response.json()
-        console.log("reviews from thunk: ", reviews)
+        // console.log("reviews from thunk: ", reviews)
         dispatch(loadAllUserReview(reviews.Reviews))
     }
 }
@@ -88,7 +88,7 @@ export const createReview = (myReviewInfo) => async (dispatch) => {
     if (response.ok) {
       const review = await response.json();
       dispatch(goodbyeReview(id));
-      console.log("Delete spot from thunk: ", review)
+      // console.log("Delete spot from thunk: ", review)
     }
   };
 
