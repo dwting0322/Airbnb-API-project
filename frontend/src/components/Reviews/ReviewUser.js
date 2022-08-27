@@ -41,7 +41,12 @@ const ReviewsUser = () => {
                     </div>
 
 
-                )) : <h2 className="ReviewUser_no_an_review_found">You have not written any reviews yet.</h2>}
+                )) : 
+                <>
+                <h2 className = "please_log_in">Please log in to see all the reviews or</h2>
+                <h2 className="ReviewUser_no_an_review_found">You have not written any reviews yet.</h2>
+                </>
+                }
             </div>
             <footer className='footer_container'>
                 <div>
