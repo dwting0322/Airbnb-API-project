@@ -25,7 +25,7 @@ const ReviewsUser = () => {
     // if (!reviews) return null
 
     return (
-        <>
+        <div>
             
             <div className="review_container" >
             <h1 className="review_user_h2">Reviews by you: </h1>
@@ -56,7 +56,7 @@ const ReviewsUser = () => {
                 <i className="fa-solid fa-globe"></i> English(US) $ USD
                 </div>
             </footer>
-        </>
+        </div>
     );
 };
 

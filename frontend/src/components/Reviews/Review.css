@@ -20,7 +20,7 @@ textarea{
     flex-wrap: wrap;
     font-size: 25px;
     margin-left: 30px;
-    /* border-bottom: 1px solid rgb(239, 236, 236); */
+    min-height: 78vh;
 }
 
 .first_div{
@@ -133,6 +133,5 @@ textarea{
 .errors_ul{
     display: flex;
     flex-direction: column;
-    
-    
 }
+
