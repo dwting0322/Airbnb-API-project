@@ -121,6 +121,11 @@ const SpotForm = ({ spot, formType }) => {
     if (!price || price <= 0) {
       errors.push("Price per day is required and can't less than or equal to $0");
     }
+
+    if (price % 1 !== 0){
+      errors.push("Price must be integer");
+    }
+
     if (!previewImage.length) {
       errors.push("Image's url is required");
     }
