@@ -415,6 +415,7 @@ textarea {
 
 .Create_Spot_error {
     list-style-type: none;
+    color: red;
 }
 
 
