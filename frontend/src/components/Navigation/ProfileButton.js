@@ -43,6 +43,8 @@ function ProfileButton({ user, setShowModal }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    // history.push('/')
+    
   };
 
 

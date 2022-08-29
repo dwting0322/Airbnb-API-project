@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./LoginForm.css"
 
 
-function LoginForm() {
+function LoginForm({setShowModal, showModal}) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -15,11 +15,11 @@ function LoginForm() {
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
+     let abc = await dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
         // console.log("data.errors", data)
@@ -32,6 +32,7 @@ function LoginForm() {
         }
       }
     );
+    if(abc) setShowModal(false)
   };
 
 
