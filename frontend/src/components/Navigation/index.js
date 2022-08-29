@@ -34,19 +34,6 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-      {/* <div>
-         <div>
-       <button className="profile-button" onClick={openMenu}>
-        <i class="fa-solid fa-list"></i> <i className="fas fa-user-circle" />
-      </button>
-        </div>
-      </div> */}
-
-      {/* <ul>
-        <li><LoginFormModal /></li>
-        <li><button onClick={handleSubmit} type="submit">Sign Up</button></li>
-     
-      </ul>   */}
         <ProfileButton user={sessionUser} setShowModal={setShowModal} showModal={showModal}/>
         <LoginFormModal setShowModal={setShowModal} showModal={showModal}/>
       </>

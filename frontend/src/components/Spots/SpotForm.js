@@ -57,7 +57,7 @@ const SpotForm = ({ spot, formType }) => {
       if (newSpot) history.push(`/spots/${newSpot.id}`);
 
 
-      console.log("newSpot: ", newSpot)
+      // console.log("newSpot: ", newSpot)
 
     } else {
       dispatch(editSpot(spot))
